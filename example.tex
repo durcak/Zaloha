@@ -98,7 +98,7 @@ vektor v $m$-rozmernom priestore príznakov, ktoré zodpovedajú jednotlivým sl
     \section{Metrický priestor}
     
     Metrický priestor je množina, na ktorej je definovaná vzdialenosť pre všetky prvky z množiny. Táto vzdialenosť sa nazýva metrika. Metriku môžme definovať ako funkciu, ktorá určuje vzdialenosť medzi dvomi objektami. \\ \\
-    \textbf{Definícia:} Nech $X\neq 0$ je množina. Definujme zobrazenie $d: X \times X \rightarrow R $, ktoré spĺňa nasledujúce vlastnosti:
+    \textbf{Definícia:} Nech $X\neq 0$ je množina. Definujme zobrazenie \\ $d: X \times X \rightarrow R $, ktoré spĺňa nasledujúce vlastnosti:
     \begin{align*}
     \textrm{ Pre všetky } x,y,z \in X \qquad d(x,x) &= 0 \\
     d(x,y) &\textgreater 0 \qquad x\neq y \\
@@ -110,24 +110,47 @@ vektor v $m$-rozmernom priestore príznakov, ktoré zodpovedajú jednotlivým sl
     V tej istej množine možme definovať rôzne metriky. Metrika $d$ musí byť vždy nezáporná. \\ \\
     \textbf{Príklad:} 
     Vzdialenosť dvoch bodov na priamke v $ \mathbf{R} \quad d=|x-y| $ alebo v rovine v
-     $\mathbf{R} \quad d = \sqrt{(x_1-y_1)^2+(x_2-y_2)^2}$.
+     $\mathbf{R^2} \quad d = \sqrt{(x_1-y_1)^2+(x_2-y_2)^2}$.
     
+	\section{Vzdialenostné funkcie}
+	Vzdialenostné funcie predstavuju hlavný spôsob určenia blízkosti alebo podobnosti dvoch objektov v určitej doméne. Táto vzdialenosť može byť definovaná rôzne. Najčastejšie v zavislosti od použitého datového typu alebo účelu aplikácie.
+	Vzdialenostné funkcie rozdeľujeme na dva zakladne typy podľa charakteru ich návratovej hodnoty:
+	\begin{itemize}
+	\item \textbf{diskrétne --} vracajú len vopred určenú množinu hodnôt malého rozsahu, napr. 	     len hodnotu $1$ alebo $-1$
+	\item \textbf{spojité --} rozsah vrátenej množiny hodnôt je veľmi veľký alebo aj nekonečno, 		napr. hodnoty z intervalu $[0,1]$
+	\end{itemize}
+	Ďalej si popíšeme najčastejšie používané vzdialenostné funkcie. Jednu z nich budeme používať aj v testovaní a porovnávaní testovaných knižníc.
+\subsection{Minkowského vzdialenosť}
+Minkowského vzdialenosť je generalizovaná metrika, ktorá zahŕňa tzv. $L_p$ metriky v zovšebecnenej forme. Minkowskí ju definoval takto: 
+\begin{equation*}
+L_p((x_1,...,x_n),(y_1,...,y_n))=\sqrt[p]{(\sum\limits_{i=1}^n \mid x_i-y_i \mid^p )}
+\end{equation*}
+Rovnica udáva vzdialenosť medzi dvomi objektami v $n$-dimenzionalnom priestore pre $p\geq 1$ (ak by bolo $p \textless 1$ nešlo by o metriku). \\
+	\begin{figure}
+  		\centering
+  		\includegraphics[width=14cm]{obr/lp.eps}
+  		\caption{Znázornenie $L_p$- metrik v $R^2$ podľa parametra p}
+  		\label{fig:triangle}
+	\end{figure}  
 
-    
-    \chapter{Knižnica Flann}
-    	\section{Podkapi}
-    	\section{Podkapitola}
-    	\paragraph{dsdsd}
+Medzi najznámejšie a napoužívanejšie metriky patria:
+\begin{itemize}
+\item $L_1$ -- Manhattanská metrika vyjadruje najkratšiu vzdialenosť, ktoru musíme prejsť aby sme sa v meste dostali z jedneho bodu do druhého. Je pomenovaná podľa pravouhélo systému ulíc v meste New York.
+\item $L_2$ -- Eklidovská metrika vyjadruje najkračšiu vzdušnú vzdialenosť medzi dvomi objektmi. $L_2$ je použitá aj pri testoch.
+\item $L_\infty $ -- Čebyševova metrika, nazýva sa tiež maximálna alebo šachovnicová vzdialenosť, pretože na šachovnici, je to minimalny počet ťahov potrebných na prejdenie kráľom z jedného štvorca na iný.
+\end{itemize}
+
+
 
     
     \chapter{Výsledky testov}
     
     \chapter{Záver}
-    \appendix
+
     \chapter{First appendix}        % Appendices
-    \Blindtext
+
     \chapter{Another appendix}
-    \Blindtext
+
     % Bibliography goes here
     % Index goes here (optional)
 \end{document}
