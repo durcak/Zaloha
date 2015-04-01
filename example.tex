@@ -79,7 +79,7 @@
 
 \begin{figure}
   \centering
-  \includegraphics[width=6cm]{gis_histogram_obrazu.png}
+  \includegraphics[width=6cm]{obr/gis_histogram_obrazu.png}
   \caption{Histogram farieb so siedmimi farebnými odtieňmi.}
   \label{fig:triangle}
 \end{figure}  
@@ -130,7 +130,7 @@ Rovnica udáva vzdialenosť medzi dvomi objektami v $n$-dimenzionalnom priestore
   		\centering
   		\includegraphics[width=14cm]{obr/lp.eps}
   		\caption{Znázornenie $L_p$- metrik v $R^2$ podľa parametra p}
-  		\label{fig:triangle}
+  		%\label{fig:triangle}
 	\end{figure}  
 
 Medzi najznámejšie a napoužívanejšie metriky patria:
@@ -170,9 +170,52 @@ Výsledkom je bod $x$, ktorého vzdialenosť od dotazu $q$ je najmenšia spomedz
   		\centering
   		\includegraphics[width=6.5cm]{obr/Image25.eps}
   		\caption{Znázornenie $kNN$ a $rNN$ v $L_2$-metrike}
-  		\label{fig:triangle}
+  		%\label{fig:triangle}
 	\end{figure}  
-   
+
+\section{Indexové štruktúry}
+
+Pri vyhľadávaní v metrických alebo vektorových prietoroch je vhodné dáta rozdeliť do menších podmnožin a niektoré data pri prezeraní vynechať, čím sa môže odpoveď na dotaz značne urýchliť. Na roztriedenie dát použivame špeciálne indexové štruktúry. Dve z nich si v podkapitolách popíšeme.
+\subsection{KD-stromy}
+KD = k-dimenzionálny strom je binárny strom slúžiaci na reprezentáciu priestorových dát vyšších dimenzií vo vektorovom priestore. Dáta sú v strome rozdeľované podľa viacdimenzionálnych kľúčov, ktorými su zvyčajne súradnice bodov alebo vektorov. 
+\subsubsection{\textbf{Vytvorenie KD-stromu}}
+\textbf{Vstup:} Množina objektov v k-dimenzionálnom priestore. \\
+\textbf{Problem:} Vytvoriť strom, ktorý rozdeľuje priestor polrovinami, tzn. každý objekt je vo svojom vlastnom kvádri. Viď Obr. 2.4.\\
+\begin{figure}
+  		\centering
+  		\includegraphics[width=13cm]{obr/kdtree.eps}
+  		\caption{Znázornenie $kNN$ a $rNN$ v $L_2$-metrike}
+  		%\label{fig:triangle}
+\end{figure}
+\textbf{Samotná konštrukcia stromu:} \\ 
+-- v každej úrovni stromu vyberáme postupne jeden z koordinátov $ \{ x_1,x_2,...,x_k \} $ ako základ rozdeľovania ostaných objektov \\
+-- napríklad v koreni stromu sa rozhodujeme podľa $x_1$ a ako v binárnom vyhľadávacom strome, všetky objekty s hodnotou koordinátu $x_1$ menšou ako hodnota koreňového uzlu budú v ľavom podstrome a s väčšou alebo rovnou hodnotou budú v pravom podstrom \\
+-- v ďalšej podúrovniach stromu triedime objekty postupne podľa ďalších koordináttov, keď už bude mať strom hĺbku $k$, začíname porovnavať opäť od začiatku podľa $x_1,...$ \\
+-- ak by sme vkladali objekty do stromu v nahodnom poradí, strom by bol nevyváženy, preto sa vkladané objekty vyberajú podľa priemernej hodnoty všetkých hodnôt na danom koordináte alebo podľa mediánu \\
+-- po log(n) krokoch sa rozklad zastaví, každý objekt má svoje miesto\\ \\
+\textbf{Vkladanie objektu do stromu:}\\
+\textbf{Príklad:} Do stromu na Obr. 2.5 vložíme objekt s kľúčom (11,8)\\
+-- v koreni sa podľa koordinátu $x$ porovná s uzlom (7,2), kedže 11>7 ide doprava \\
+-- v ďalšej urovní sa porovná podľa $y$ s uzlom (9,6), kedže 8>6 ide doprava, tento uzol je prázdny, preto sa na toto miesto uloži objekt (11,8) \\ \\
+\begin{figure}
+  		\centering
+  		\includegraphics[width=5cm]{obr/Kd_tree.eps}
+  		\caption{Vkladanie objektu do KD-stromu}
+  		%\label{fig:triangle}
+\end{figure}
+\textbf{Vyhľadávanie v KD-strome} \\
+KD-strom umožňuje vyhľadávať najbližšie body. Na Obr. 2.4 je znázornené ako strom rozdelí vektorový priestor na menšie obdĺžniky -- polroviny. Nájdenie najbližšieho objektu teda znamená najdenie oblasti, v ktorej je dotaz $q$ a prehľadanie okolitých oblastí, kde by sa ešte mohol nachádzať ešte bližší bod.
+\\
+\textbf{Algoritmus:} \\--nájde sa bunka $c$ obsahujúca objekt $q$ \\
+--$q$ je ohraničená nejakým objektom $p$ (to ale nemusí byť najližší objekt)\\
+--nájdeme všetky najbližšie bunky $c'$ vo vzdialenosti $d(p,q)$ \\
+--otestujeme či $c'$ neobsahuje bližší objekt
+  
+
+
+
+
+\subsection{M-stromy}
    
    
     \chapter{Výsledky testov}
