@@ -123,7 +123,7 @@ vektor v $m$-rozmernom priestore príznakov, ktoré zodpovedajú jednotlivým sl
 \subsection{Minkowského vzdialenosť}
 Minkowského vzdialenosť je generalizovaná metrika, ktorá zahŕňa tzv. $L_p$ metriky v zovšebecnenej forme. Minkowskí ju definoval takto: 
 \begin{equation*}
-L_p((x_1,...,x_n),(y_1,...,y_n))=\sqrt[p]{(\sum\limits_{i=1}^n \mid x_i-y_i \mid^p )}
+L_p((x_1,...,x_n),(y_1,...,y_n))=\sqrt[p]{\left(\sum\limits_{i=1}^n \mid x_i-y_i \mid^p \right)}
 \end{equation*}
 Rovnica udáva vzdialenosť medzi dvomi objektami v $n$-dimenzionalnom priestore pre $p\geq 1$ (ak by bolo $p \textless 1$ nešlo by o metriku). \\
 	\begin{figure}
@@ -177,8 +177,8 @@ Výsledkom je bod $x$, ktorého vzdialenosť od dotazu $q$ je najmenšia spomedz
 
 Pri vyhľadávaní v metrických alebo vektorových prietoroch je vhodné dáta rozdeliť do menších podmnožin a niektoré data pri prezeraní vynechať, čím sa môže odpoveď na dotaz značne urýchliť. Na roztriedenie dát použivame špeciálne indexové štruktúry. Dve z nich si v podkapitolách popíšeme.
 \subsection{KD-stromy}
-KD = k-dimenzionálny strom je binárny strom slúžiaci na reprezentáciu priestorových dát vyšších dimenzií vo vektorovom priestore. Dáta sú v strome rozdeľované podľa viacdimenzionálnych kľúčov, ktorými su zvyčajne súradnice bodov alebo vektorov. 
-\subsubsection{\textbf{Vytvorenie KD-stromu}}
+KD = k-dimenzionálny strom je binárny strom slúžiaci na reprezentáciu priestorových dát vyšších dimenzií vo vektorovom priestore. Dáta sú v strome rozdeľované podľa viacdimenzionálnych kľúčov, ktorými su zvyčajne súradnice bodov alebo vektorov. \\ \\
+\textbf{Vytvorenie KD-stromu}\\
 \textbf{Vstup:} Množina objektov v k-dimenzionálnom priestore. \\
 \textbf{Problem:} Vytvoriť strom, ktorý rozdeľuje priestor polrovinami, tzn. každý objekt je vo svojom vlastnom kvádri. Viď Obr. 2.4.\\
 \begin{figure}
@@ -199,7 +199,7 @@ KD = k-dimenzionálny strom je binárny strom slúžiaci na reprezentáciu pries
 -- v ďalšej urovní sa porovná podľa $y$ s uzlom (9,6), kedže 8>6 ide doprava, tento uzol je prázdny, preto sa na toto miesto uloži objekt (11,8) \\ \\
 \begin{figure}
   		\centering
-  		\includegraphics[width=5cm]{obr/Kd_tree.eps}
+  		\includegraphics[width=7cm]{obr/Kd_tree.eps}
   		\caption{Vkladanie objektu do KD-stromu}
   		%\label{fig:triangle}
 \end{figure}
@@ -209,15 +209,49 @@ KD-strom umožňuje vyhľadávať najbližšie body. Na Obr. 2.4 je znázornené
 \textbf{Algoritmus:} \\--nájde sa bunka $c$ obsahujúca objekt $q$ \\
 --$q$ je ohraničená nejakým objektom $p$ (to ale nemusí byť najližší objekt)\\
 --nájdeme všetky najbližšie bunky $c'$ vo vzdialenosti $d(p,q)$ \\
---otestujeme či $c'$ neobsahuje bližší objekt
+--otestujeme či $c'$ neobsahuje bližší objekt \\
+\\
+\textbf{Použitie:}\\
+KD-stromy sa používajú hlavne na indexovanie objektov s nižšou dimenziou. Pri vyšších dimenziách sa začne prejavovať tzv. \textit{prekliatie dimenzionality}, ktoré spôsobuje neefektívnosť pri vyhľadávaní.
+
   
-
-
-
-
 \subsection{M-stromy}
-   
-   
+   Pre indexovanie objektov v metrických priestoroch sa často využíva datová štruktúra M-strom. Štruktúru stromu tvorí opäť n-arny strom ako u KD-stromu. Rozdiel spočíva v obsahu uzlov a listov stromu. Samotné objekty sú uložené len v listových uzloch stromu. Nelistové ulzy obsahujú tzv. \textbf{smerovacie objekty}. \\\\
+Každý smerovací objekt v uzle obsahuje:
+\begin{itemize}
+\item Samotný objekt $O_r$, ktorý može byť \textit{virtuálny} -- vypočítaný pre účely M-stromu alebo \textit{skutočný} -- uloženy v niektorom liste $T(O_r)$
+\item Odkaz $ptr(T(O_r))$ n svoj podstrom $T(O_r)$
+\item Polomer $r(O_r)$
+\item Vzdialenosť $d(O_r,P(O_r))$  od svojho rodičovského smerovacieho objektu $P(O_r)$
+\end{itemize}
+Listove uzly vypadajú podobne, ale miesto odkazu na svoj podstrom a polomeru obsahujú $oid(O_j)$ -- identifikátor celého objektu.\\
+
+Princíp hierarchie M-stromu spočíva rovnako ako u KD-stromu v rozdelení priestoru na menšie regióny, ktoré ale nemusia byť nutne disjunktné ako je to u KD-stromu. K rozdeleniu slúžia smerovacie objekty, pričom všetky objekty v listových uzloch, ktoré obsahuje podstrom $T(O_r)$ smerovacieho objektu $O_r$, sú vo vzdialenosti maximálne $r(O_r)$ od $O_r$. Teda:
+\begin{equation*}
+\forall O_i \in T(O_r) \qquad   d(O_r,O_i) \leq r(O_r)
+\end{equation*}
+\begin{figure}
+  		\centering
+  		\includegraphics[width=13cm]{obr/m-tree.png}
+  		\caption{Uzly M-stromu obsahujúce objekty (vľavo) a regióny smerovacích objektov znazornené v metrickom priestore (vpravo)} Zdroj: 
+  		%\label{fig:triangle}
+  		\label{m-strom}
+\end{figure}
+Na obrázku \ref{m-strom} je znázornená štruktúra stromu a vzťahy medzi smerovacími objektami.\\
+\\
+\textbf{Vytvorenie M-stromu:}\\
+Rovnaká množina objektov može byť v M-strome indexovaná mnohými rôznymi spôsobmi, pričom neporušíme ani jeden z axiomov metriky alebo vlastnosti M-stromov. Avšak každý z tychto zpôsobov memusí byť práve ideálny z hľadiska efektivity operácií vykonávaných nad M-stromom. Obecne hľadáme také spôsoby konštrukcie stromov, aby zložitost dotazovania bola minimálna. Efektívnosť vyhľadávania v značnej miere ovplyvňuje výber smerovacích objektov tzv. \textit{pivotov}, ktoré potrebujeme na rozdelenie metrického priestoru pri vytváraní stromu. Dôležitý je vyber pivotov, ktorí sú vo vhodnej vzdialenosti od osnatných objektov. Dobrí pivoti by mali byť navzájom ďaleko od seba a taktiež by sa mali nachádzať ďaleko od ostatných objektov v metrickom priestore. \\
+\\
+\textbf{Vyhľadávanie v M-strome:}\\
+V M-stromoch môžme vyhľadávať \textit{k-najbližších susedov} ako aj pomocou \textit{rozsahového dotazu}. 
+
+Pri vyhľadávaní k-najbližších susedov je dôležitá prioritná rada, z ktorej postupne vyberáme objekty na vyhľadávanie v strome $T(O_r)$. Každý objekt v rade má tvar:\\ $(prt(T(O_r)), d_{min}(T(O_r)))$. Prvý člen je už známy ukazateľ na podstrom, druhý člen je spodná hranica medzi dotazovaným objektom $Q$ a každým objektom $O_j$ z $T(O_r)$.
+\\ \\
+\textbf{Použitie:} \\
+M-stromy požívame, keď dáta nie je možné indexovať vo vektorovom priestore, alebo keď sú vektory dát príliš dlhé (dimenzia \textgreater \,20). Metrický priestor umožňuje definovať špeciálne metriky a tým rôzne interpretovať vzdialenosť (resp. podobnosť) objektov na základe ich vlastností.
+
+	\chapter{Knižnica Flann}
+
     \chapter{Výsledky testov}
     
     \chapter{Záver}
