@@ -15,6 +15,13 @@
 \usepackage{blindtext}            % Lorem ipsum generator
 \usepackage{amsmath}
 
+\usepackage{listings}
+\lstset{language=C++}
+\usepackage{verbatimbox}
+\usepackage{graphicx}
+\parskip 1ex
+\parindent 0in
+
 \thesislang{sk}                   % The language of the thesis
 \thesistitle{Vyhľadávanie najbližších vektorov s využitím knižnice FLANN}       % The title of the thesis
 \thesissubtitle{Bakalárska práca}  % The type of the thesis
@@ -50,7 +57,7 @@
     \chapter{Základné pojmy}
     
     	\section{Vektorový priestor}
-    Vektorový priestor $ \Omega = D_1D_2. . .D_n $ má dimenziu $n$. Objekt (resp. vektor, resp.bod)  $\mathcal{O} = [a_1, a_2, . . . , a_n] $ patriaci do vektorového priestoru je jednoznačne určeny svojimi súradnicami $ a_i \in D_i, 1 \le i \le n, $ ktorých je práve $n$. Každá jednotlivá dimenzia má svoju doménu $D_i$ - množinu hodnôt (resp. vlastností), ktoré môže prislušná vektorová súradnica nadobúdať.
+    Vektorový priestor $ \Omega = D_1D_2. . .D_n $ má dimenziu $n$. Objekt (resp. vektor alebo bod)  $\mathcal{O} = [a_1, a_2, . . . , a_n] $ patriaci do vektorového priestoru je jednoznačne určeny svojimi súradnicami $ a_i \in D_i, 1 \le i \le n, $ ktorých je práve $n$. Každá jednotlivá dimenzia má svoju doménu $D_i$ - množinu hodnôt (resp. vlastností), ktoré môže prislušná vektorová súradnica nadobúdať. \cite{stromy}
     	
     Vektorový priestor $\Omega$, definujeme nad určitým poľom $\mathbf{P} $, s význačným prvkom $\mathbf{0}$ a dvomi binárnymi operáciami, sčítaním $+ : \Omega \times \Omega \rightarrow \Omega $  a násobením $. : \mathbf{P}  \times \Omega \rightarrow \Omega$, takými že platí: 
      
@@ -250,15 +257,147 @@ Pri vyhľadávaní k-najbližších susedov je dôležitá prioritná rada, z kt
 \textbf{Použitie:} \\
 M-stromy požívame, keď dáta nie je možné indexovať vo vektorovom priestore, alebo keď sú vektory dát príliš dlhé (dimenzia \textgreater \,20). Metrický priestor umožňuje definovať špeciálne metriky a tým rôzne interpretovať vzdialenosť (resp. podobnosť) objektov na základe ich vlastností.
 
-	\chapter{Knižnica Flann}
+	\chapter{Knižnica FLANN}
+	FLANN\footnote{Z anglického: Fast Library for Approximate Nearest Neighbors} je knižnica poskytujúca rýchly programátorsky nástroj, ktorý slúži na \textit{vyhľadávanie najbližších susedov}. Pre tento účel obsahuje kolekciu nástrojov (algoritmov) a tiež systém automatického výberu najlepšieho algoritmu a optimálnych parametrov použitých pri vyľadávani najbližších susedov. Aby bolo vyhľadávanie čo najrýchlejšie, je knižnica FLANN napísaná v programovacom jazyku C++ a je možné ju použiť aj pri programovaní v jazykoch C, Matlab, Python a Ruby. Knižnica je voľne šíriteľná pod licenciou BSD\footnote{BSD licencia sa používa pre voľne šíriťeľný softvér, je pomenovaná podľa Berkeley Software Distribution, UNIXový operačný systém}.\cite{flann_pami_2014}
+	
+V ďalších podkapitolách si popíšeme algoritmy \textit{priority search
+k-means tree}\footnote{Algoritmus pre prioritné K-means stromy} a \textit{multiple randomized k-d trees}\footnote{Algoritmus náhodných KD-stromov}, ktoré sú obsiahnuté v knižnci FLANN a javia sa najrýchlejšie z pomedzi existujúcich algoritmov na vyhľadávanie najbližších susedov.
+	\section{Algoritmus náhodných KD-stromov}
+Klasické algoritmy výužívajúce KD-stromy sú vhodné na vyhľadávanie najbližších susedov v nízko-dimenzionálnych dátach, avšak pre vyššie dimenzie vykazujú značný pokles výkonu. Tento problém viedol k vývoju nového a vylepšeného algoritmu využívajúceho KD-stromy. \cite{flann_pami_2014}	
+	
+	Algoritmus je založený na stavaní mnohopočetných nahodných KD-stromov, ktoré sú prehľadávané paralelne. Originálne KD-stromy pri výtvaraní delia dáta na polovicu v každej úrovni stromu vždy postupne podľa dimenzií zaradom. Na porovnanie nahodne KD-stromy vyberajú deliacu dimenziu náhodne z prvých $D$ dimenzií, kde majú dáta najväčší rozptyl. Knižnica FLANN používa v implementácií algoritmu hodnotu $D$ = 5, ktorá sa pri testoch ukázala ako optimálna. Pri vyhľadávani sa používa prioritná rada skrz všetky randomizované KD-stromy. Objekty v tejto rade sú zoradené podľa zvyšujúcej sa vzdialenosti od deliacej hranice v každej úrovni, čo zvyšuje rychlosť vyhľadávania. Každý objekt, ktorý už bol porovnaný s dotazom v niektorom strome, je označený a v ďalších  stromoch sa už neporovnáva. Presnosť aproximácie vyhľadávania sa reguluje nastavením maximálneho počtu listových uzlov (skrz všetky stromy), ktoré sa pri vyhľadávaní skontrolujú. \cite{flann_pami_2014} 	
+	
+	\section{Algoritmus pre prioritné K-means stromy}
+	Pri niektorých typoch dát, može byť efektívnejší algortmus K-means stromov, vzlášt ak je prioritou vysoká presnosť výsledkov. Algoritmus prioritných K-means stromov sa snaží lepšie využívať prirodzenú štruktúru vstupných dát. Na rozdiel od randomizovaných KD-stromov, delí a zoskupuje data do skupín za základe vzdialeností skrz všetky dimenzie, pričom KD-stromy využívajú na delenie v každej úrovni len jeden rozmer. \cite{flann_pami_2014}
+	\subsection{Opis algoritmu}
+	Pri tvorení K-means stromu sa dáta delia v každej úrovni do $K$ rôznych regiónov pomocou \textit{K-means zhlukovacieho algoritmu}. Rovnaká metóda sa rekurzívne aplikuje na každu novú skupinu dát. Delenie končí, keď počet objektov v každom regióne je menší ako hodnota $K$. Presnejší popis a štruktúra algoritmu \cite{flann_pami_2014}.
+	\subsection{Výhľadávanie v strome}
+	K-means strom sa prehľadáva postupne od koreňa k najbližšiemu listu. Vetvy, ktoré boli pri prechádzaní stromu preskočené sa ukladajú do prioritnej rady, zoradené podľa vzdialenosťi k dotazovanému objektu. Algoritmus potom ešte skontroluje podstromy uložené v tejto rade. Presnejší náhľad algoritmu je opäť v \cite{flann_pami_2014}.
+	
+	Počet regiónov $K$, na ktoré sa vstupné dáta delia pri vytváraní stromu určuje parameter algoritmu nazvaný \textit{počet vetiev stromu}. Výber optimálneho $K$ ovplyvňuje rýchlosť a správnosť vyhľadávania. Ďalším parametrom je $I_{max}$ a určuje maximálny počet iterácií, ktoré sa vykonajú pri delení stromu na regióny. Menší počet iterácié urýchli stavbu stromu, ale zníži presnosť vyhľadávania. Posledným parametrom je výber algoritmu, ktorý určí ako sa bude počítať rozhodovacia hranica pri delení objektov do regiónov. K dispozícií mame: \textit{náhodný výber}, \textit{Gonzalesov algoritmus} (výber objektov, ktoré su ďaleko od seba) alebo  \textit{KMeans++ algoritmus} \cite{K-means++}. \cite{flann_pami_2014}
+	
+	\section{Algoritmus The Hierarchical Clustering Tree\protect\footnote{Algoritmus pre Hierarchické zhlukovacie stromy}}
+	Prechádzajúce dva algoritmy sú určené predovšetkým na vyhľadávanie najbližších susedov vo vektorových dátach. Niesu však vhodné na vyhľadávanie v binárnych dátach. Pre tento účel bol vyvinutý nový algoritmus, ktorý výužíva novú datovú štruktúru: \textit{hierarchické zhukovacie stromy}. \cite{Attach:binary_matching_crv2012}
+	
+	Vytváranie hierarchického zhlukovacieho stromu je podobné K-means stromu.   Zo vstupných dát sa nahodne vyberie $K$ \textit{zhlukovacích centier} a objekty sa rozdelia do $K$ zhlukov podľa toho, ku ktorému zhlukovaciemu centru sú najbližšie. Hodnota $K$ je vstupný parameter algoritmu. Delenie potom prebieha rekurzívne na všetkych nových zhlukoch, až kým nie je počet objektov v zhluku menši ako $K$. Vtedy sa vytvoria listové uzly stromu. \cite{Attach:binary_matching_crv2012}
+	
+	Na rozdiel od algoritmu pre prioritné K-means stromy, nevytvárame zo vstupných dát len jeden strom, ale celý les stromov, v ktorom sa vyhľadáva paralelne. Aby bolo vytváranie stromov rýchlejšie, je výhodné vyberať zhukovacie centrá náhodne, pričom nedochádza k výraznému poklesu presnosti. Vyhľadávanie je podobné algoritmu pre K-means stromy. \cite{Attach:binary_matching_crv2012}
+	
+	Pred vytváraním stromu možme nastaviť \textit{rozvetvenie stromu ($K$)}, \textit{počet stromov}, \textit{maximálny počet objektov v listových uzloch} a \textit{algoritmus pre výber prvých $K$ zhukovacích centier}. \cite{Attach:binary_matching_crv2012}
+	
+	\section{Automatický výber algoritmu}
+	Výber správneho algoritmu a optimálnych parametrov pri vyhľadávanie najbližších susedov nie je triviálny problém. Správný voľba závisí od niekoľkých faktorov ako napríklad: štruktúra vstupných dát a zvolená presnosť vyhľadávania. Každý z možných algoritmov má množinu nastaviteľných parametrov, ktoré v značnej miere ovplyvňujú výsledky vyhľadávania. Je to napríklad počet náhodných stromov pri použití KD-stromu alebo počet vetiev každého uzla pri hierarchickom K-means strome. \cite{muja_flann_2009} 
+	
+	Výber algoritmu je optimalizačný problém, ktorým sa snažíme nájsť najlepšie riešenie. Cenú výpočtu počítame ako kombináciu času potrebného na vyhľadávanie dotazov, času za ktorý sa vytvorí vyhľadávací index (strom) a pamäťovej záťaže. Každy z týchto faktorov má inú váhu v závislosti na aplikácií a použití. Ak vytvárame vyhľadávací index len raz, ale vyhľadávanie prebieha mnohokrát, je dôležitejší čas vyhľadávania ako čas potrebný na vytvorenie indexu. Niekedy vyhľadávame v indexe len raz, napríklad pri on-line aplikáciach, vtedy potrebujeme aby sa index vytvoril čo najrýchlejšie. Môžu nastať aj situácie, kedy potrebuje čo najmenšie pamäťová zaťaženie.Váha pamäťového zaťaženie je $w_m$ a váha času vytvorenie indexu je $w_b$. Celkovú cenu počitame pomocou:
+	\begin{equation}
+	\mathrm{cost} = \dfrac{s + w_bb}{(s + w_bb)}_{opt} + w_mm
+	\label{cena}
+	\end{equation}
+kde $s$ je čas vyhľadávania a $b$ je čas potrebný na vytvorenie vyhľadávacieho indexu. Parameter $m = m_t/m_d$ reprezentuje pomer pamäte použitej na uloženie indexu ($m_t$) a uloženia dát ($m_d$). Parameter $w_b$ reguluje čas potrebný na vytvorenie indexu vzhľadom ku času vyhľadávania. Ak nastavíme $w_b = 0$, znamená to, že chceme čo najrýchlejšie vyhľadávať a nezaujíma nás rýchlosť vytvorenia indexu. Nastavením $w_b = 1$, priradíme času vyhľadávania a vytvorenia indexu rovnaku doležitosť. Podobne $w_m$ nastavuje prioritu medzi časom (čas vyhľadávania vytvorenia indexu) a pamäťou, ktorú využiva vyhľadávací index. Hodnota $w_m \textless 1$ kladie väčšiu váhu na čas nehľadiac na pamäť a hodnota $w_m \textgreater 1$  kladie prioritu na množstvo využitej pamäte. Nastavením $w_m = 1$ priradíme rovnakú prioritu času aj využitiu pamäte. \cite{muja_flann_2009} 
+
+Výber najlepšieho algoritmu a optimálnych parametrov sa vykonáva v dvoch ktorokoch: V prvom kroku vyberáme algoritmus s najlepšimi výsledkami podľa rovnice \ref{cena}. Pri testovaní sa využívaju hodnoty z množiny \{1,4,8,16,32\} ako počet náhodných KD-stromov, \{1,5,10,15\} ako počet iterácií a \{16,32,64,128,256\} ako počet vetiev v K-means strome. V druhom kroku sa využíva Nelder-Mead downhill simplex metóda \cite{NelderMead65}, pomocou ktorej sa určia optimálne parametre pre algoritmus vybraný v prvom kroku. Optimalizácia može byť počítaná na celých vstupných dátach, alebo len na časti. Typicky stačí $5-10\,\%$ a výsedky sa stále veľmi blížia optimálnym hodnotám (ak sú dáta podobnej štruktúry). \cite{muja_flann_2009} 
+
+	\section{Použitie knižnice FLANN v C++}
+	Jadro knižnice FLANN je naprogramované v programovacom jazyku C++, preto je na jej samotnú kompiláciu potrebný C++ prekladač. Knižnicu je možne použiť Linuxovými distribúciami ale aj Windowsom a OS X. Pre viac-jadrovú podporu je nutné mať nainštalovanú knižnicu OpenMP. Predkompilovanú knižnicu FLANN je  možné použiť aj pomocou knižnice PCL (Point Cloud Library)\footnote{http://www.pointclouds.org}, do ktorej je implementovaná jedna zo starších verzií. V ďalších častiach si popíšeme niektoré základné triedy a funkcie knižnice. 
+	
+	\subsection{Trieda flann::Index}  
+	Táto trieda tvorí základ knižnice. Je abstraktnou triedou pre všetky typy indexov a je šablonovaná na rôzne druhy vzdialenostných funkcií. \\
+\textbf{Konštruktor:}
+
+{\scriptsize	
+\begin{lstlisting}[frame=single]  
+Index(const IndexParams& params, Distance distance = Distance() );
+
+Index(const Matrix<ElementType>& points, const IndexParams& params,
+       Distance distance = Distance() );
+\end{lstlisting}}
+Trieda \textbf{Matrix<ElementType>} obsahuje uložené objekty, z ktorých sa má vytvoriť vyhľadávací index. Objekty sú uložené v poradí za sebou. 
+
+\textbf{IndexParams} je štruktúra, ktorá obsahuje parametre indexu. Typ indexu, ktorý sa vytvorí zavysí na tomto parametri. IndexParams može mať rôzne typy:
+\begin{itemize}
+
+\item \textbf{LinearIndexParams} Index s týmto typom vyhľadáva najbližšie objekty pomocou lineárneho vyhľadávania.
+
+\item \textbf{KDTreeIndexParams} Index s týmto typom vytvorí randomizované KD-stromy, ktoré sa prehľadávajú pararelne. V štruktúte je možné nastaviť počet stromov (\texttt{trees}), ktoré sa majú vytvoriť.
+{\scriptsize
+\begin{lstlisting}
+struct KDTreeIndexParams : public IndexParams
+{
+	KDTreeIndexParams( int trees = 4 );
+};
+\end{lstlisting}}
+\item \textbf{KMeansIndexParams} Index s týmto typom vytvorí hierarchický k-means strom.
+{\scriptsize
+\begin{lstlisting}
+struct KMeansIndexParams : public IndexParams
+{
+	KMeansIndexParams( int branching = 32,
+		int iterations = 11,
+		flann_centers_init_t centers_init = FLANN_CENTERS_RANDOM,
+		float cb_index = 0.2 );
+};
+\end{lstlisting}}
+V štruktúre môžme nastaviť rozvetvenie stromu (\texttt{branching}), počet iterácií (\texttt{iterations}) alebo algoritmus na výber deliacej hranice (\texttt{centers\_init}). Hodnota \texttt{cb\_index} určuje, ktore objekty sa pri prechádzaní stromu porovnávajú ako prvé. Ak je \texttt{cb\_index} = 0, uprednostňujú sa objekty bližšie k deliacej hranici.
+
+\item \textbf{CompositeIndexParams} Index s týmto typom je kombináciou randomizovaných KD-stromov a hierarchického K-means stromu.
+{\scriptsize
+\begin{lstlisting}
+struct CompositeIndexParams : public IndexParams {
+	CompositeIndexParams( int trees = 4,
+		int branching = 32,
+		int iterations = 11,
+		flann_centers_init_t centers_init = FLANN_CENTERS_RANDOM,
+		float cb_index = 0.2 );
+};
+\end{lstlisting}}
+
+\item \textbf{KDTreeSingleIndexParams} Index s týmto typom vytvorí jeden KD-strom, ktorý sa hodí a je optimalizovaný na vyhľadávanie v nízkodimenzionálnych dátach (napríklad 2D a 3D priestor).
+{\scriptsize
+\begin{lstlisting}
+struct KDTreeSingleIndexParams : public IndexParams
+{
+	KDTreeSingleIndexParams( int leaf_max_size = 10 );
+};
+\end{lstlisting}}
+\texttt{leaf\_max\_size} nastavuje maximálny počet objektov v listových uzloch.
+
+\item \textbf{KDTreeCuda3dIndexParams} Index s týmto typom vytvorí jeden KD-strom. Vytvorenie a vyhľadávanie v strome prebieha na CUDA kompatibilných grafických kartách. Tento typ indexu sa hodí na vyľadávanie veľkého počtu dotazov.
+
+\item \textbf{HierarchicalClusteringIndexParams} Index s týmto typom použíje na vyhľadávanie hierarchické zhlukovacie stromy.
+{\scriptsize
+\begin{lstlisting}
+struct HierarchicalClusteringIndexParams : public IndexParams
+{
+	HierarchicalClusteringIndexParams(int branching = 32,
+		flann_centers_init_t centers_init = FLANN_CENTERS_RANDOM,
+		int trees = 4, 
+		int leaf_max_size = 100)
+};
+\end{lstlisting}}
+\item \textbf{AutotunedIndexParams} Tento typ indexu je určený pre automatický výber najlepšej vyhľadávacej štruktúry a jej optimálnych parametrov. 
+{\scriptsize
+\begin{lstlisting}
+struct AutotunedIndexParams : public IndexParams
+{
+	AutotunedIndexParams( float target_precision = 0.9,
+		float build_weight = 0.01,
+		float memory_weight = 0,
+		float sample_fraction = 0.1 );
+};
+\end{lstlisting}}
+
+\end{itemize}
+
+
+
+	\subsection{Trieda flann::Matrix} 	
 
     \chapter{Výsledky testov}
-    
+
     \chapter{Záver}
-
-    \chapter{First appendix}        % Appendices
-
-    \chapter{Another appendix}
+    
+\bibliographystyle{plain}
+\bibliography{citacie}{}
 
     % Bibliography goes here
     % Index goes here (optional)
