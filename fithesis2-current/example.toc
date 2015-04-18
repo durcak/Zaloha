@@ -1,0 +1,23 @@
+\select@language {slovak}
+\contentsline {chapter}{\numberline {1}\bfseries \IeC {\'U}vod}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}\bfseries Z\IeC {\'a}kladn\IeC {\'e} pojmy}{2}{chapter.2}
+\contentsline {section}{\numberline {2.1}\slshape Vektorov\IeC {\'y} priestor}{2}{section.2.1}
+\contentsline {section}{\numberline {2.2}\slshape Metrick\IeC {\'y} priestor}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}\slshape Vzdialenostn\IeC {\'e} funkcie}{4}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}\rmfamily Minkowsk\IeC {\'e}ho vzdialenos\IeC {\v t}}{4}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}\slshape Vyh\IeC {\v l}ad\IeC {\'a}vanie v metrick\IeC {\'y}ch a vektorov\IeC {\'y}ch priestoroch}{5}{section.2.4}
+\contentsline {section}{\numberline {2.5}\slshape Indexov\IeC {\'e} \IeC {\v s}trukt\IeC {\'u}ry}{6}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}\rmfamily KD-stromy}{7}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}\rmfamily M-stromy}{9}{subsection.2.5.2}
+\contentsline {chapter}{\numberline {3}\bfseries Kni\IeC {\v z}nica FLANN}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}\slshape Algoritmus n\IeC {\'a}hodn\IeC {\'y}ch KD-stromov}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}\slshape Algoritmus pre prioritn\IeC {\'e} K-means stromy}{13}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}\rmfamily Opis algoritmu}{13}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}\rmfamily V\IeC {\'y}h\IeC {\v l}ad\IeC {\'a}vanie v strome}{13}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}\slshape Algoritmus The Hierarchical Clustering Tree\footnote {Algoritmus pre Hierarchick\IeC {\'e} zhlukovacie stromy}}{14}{section.3.3}
+\contentsline {section}{\numberline {3.4}\slshape Automatick\IeC {\'y} v\IeC {\'y}ber algoritmu}{15}{section.3.4}
+\contentsline {section}{\numberline {3.5}\slshape Pou\IeC {\v z}itie kni\IeC {\v z}nice FLANN v C++}{16}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}\rmfamily Trieda flann::Index}{16}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}\rmfamily Metod\IeC {\'y} triedy flann::Index}{19}{subsection.3.5.2}
+\contentsline {chapter}{\numberline {4}\bfseries V\IeC {\'y}sledky testov}{22}{chapter.4}
+\contentsline {chapter}{\numberline {5}\bfseries Z\IeC {\'a}ver}{23}{chapter.5}

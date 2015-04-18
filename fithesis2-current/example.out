@@ -1,0 +1,22 @@
+\BOOKMARK [0][-]{chapter.1}{\332vod}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Z\341kladn\351 pojmy}{}% 2
+\BOOKMARK [1][-]{section.2.1}{ Vektorov\375 priestor}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{ Metrick\375 priestor}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{ Vzdialenostn\351 funkcie}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.3.1}{ Minkowsk\351ho vzdialenost}{section.2.3}% 6
+\BOOKMARK [1][-]{section.2.4}{ Vyhlad\341vanie v metrick\375ch a vektorov\375ch priestoroch}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.5}{ Indexov\351 \235trukt\372ry}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.5.1}{ KD-stromy}{section.2.5}% 9
+\BOOKMARK [2][-]{subsection.2.5.2}{ M-stromy}{section.2.5}% 10
+\BOOKMARK [0][-]{chapter.3}{Kni\236nica FLANN}{}% 11
+\BOOKMARK [1][-]{section.3.1}{ Algoritmus n\341hodn\375ch KD-stromov}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.2}{ Algoritmus pre prioritn\351 K-means stromy}{chapter.3}% 13
+\BOOKMARK [2][-]{subsection.3.2.1}{ Opis algoritmu}{section.3.2}% 14
+\BOOKMARK [2][-]{subsection.3.2.2}{ V\375hlad\341vanie v strome}{section.3.2}% 15
+\BOOKMARK [1][-]{section.3.3}{ Algoritmus The Hierarchical Clustering TreeAlgoritmus pre Hierarchick\351 zhlukovacie stromy}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.4}{ Automatick\375 v\375ber algoritmu}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.5}{ Pou\236itie kni\236nice FLANN v C++}{chapter.3}% 18
+\BOOKMARK [2][-]{subsection.3.5.1}{ Trieda flann::Index}{section.3.5}% 19
+\BOOKMARK [2][-]{subsection.3.5.2}{ Metod\375 triedy flann::Index}{section.3.5}% 20
+\BOOKMARK [0][-]{chapter.4}{V\375sledky testov}{}% 21
+\BOOKMARK [0][-]{chapter.5}{Z\341ver}{}% 22

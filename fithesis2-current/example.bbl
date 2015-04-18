@@ -1,0 +1,84 @@
+\begin{thebibliography}{10}
+
+\bibitem{stromy}
+M.~Krátký, T.~Skopal, and V.~Snáše.
+\newblock Porovnání některých metod pro vyhledávání a indexování
+  multimediálních dat.
+\newblock In {\em Zbornik konference Kybernetika - história, perspektívy,
+  teória a prax}, pages 118 -- 134. Žilinská univerzita v Žiline, 2003.
+
+\bibitem{vectorspace}
+G.~Salton, A.~Wong, and C.~S. Yang.
+\newblock A vector space model for automatic indexing.
+\newblock {\em Commun. ACM}, 18(11):613--620, November 1975.
+
+\bibitem{Yianilos:1993:DSA:313559.313789}
+Peter~N. Yianilos.
+\newblock Data structures and algorithms for nearest neighbor search in general
+  metric spaces.
+\newblock In {\em Proceedings of the Fourth Annual ACM-SIAM Symposium on
+  Discrete Algorithms}, SODA '93, pages 311--321, Philadelphia, PA, USA, 1993.
+  Society for Industrial and Applied Mathematics.
+
+\bibitem{Zezula2}
+Pavel Zezula, Giuseppe Amato, Vlastislav Dohnal, and Michal Batko.
+\newblock {\em Similarity Search: The Metric Space Approach}, volume~32 of {\em
+  Advances in Database Systems}.
+\newblock Springer, 2006.
+
+\bibitem{Chavez:2001}
+Edgar Ch\'{a}vez, Gonzalo Navarro, Ricardo Baeza-Yates, and Jos{\'e}~Luis
+  Marroqu\'{\i}n.
+\newblock Searching in metric spaces.
+\newblock {\em ACM Comput. Surv.}, 33(3):273--321, September 2001.
+
+\bibitem{nns2009}
+Alexandr Andoni.
+\newblock {\em Nearest Neighbor Search: the Old, the New, and the Impossible}.
+\newblock PhD thesis, Electrical Engineering and Computer Science,
+  Massachusetts Institute of Technology, 2009.
+
+\bibitem{Kibriya2007}
+Ashraf~M. Kibriya and Eibe Frank.
+\newblock An empirical comparison of exact nearest neighbour algorithms.
+\newblock In {\em Proc 11th European Conference on Principles and Practice of
+  Knowledge Discovery in Databases}, Warsaw, Poland, pages 140--151. Springer,
+  2007.
+
+\bibitem{flann_pami_2014}
+Marius Muja and David~G. Lowe.
+\newblock Scalable nearest neighbor algorithms for high dimensional data.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 36, 2014.
+
+\bibitem{K-means++}
+David Arthur and Sergei Vassilvitskii.
+\newblock K-means++: The advantages of careful seeding.
+\newblock In {\em Proceedings of the Eighteenth Annual ACM-SIAM Symposium on
+  Discrete Algorithms}, SODA '07, pages 1027--1035, Philadelphia, PA, USA,
+  2007. Society for Industrial and Applied Mathematics.
+
+\bibitem{Attach:binary_matching_crv2012}
+Marius Muja and David~G. Lowe.
+\newblock Fast matching of binary features.
+\newblock In {\em Computer and Robot Vision {(CRV)}}, pages 404--410, 2012.
+
+\bibitem{muja_flann_2009}
+Marius Muja and David~G. Lowe.
+\newblock Fast approximate nearest neighbors with automatic algorithm
+  configuration.
+\newblock In {\em International Conference on Computer Vision Theory and
+  Application VISSAPP'09)}, pages 331--340. INSTICC Press, 2009.
+
+\bibitem{NelderMead65}
+J.~A. Nelder and R.~Mead.
+\newblock A simplex method for function minimization.
+\newblock {\em Computer Journal}, 7:308--313, 1965.
+
+\bibitem{manual}
+Marius Muja and David~G. Lowe.
+\newblock {\em FLANN - Fast Library for Approximate Nearest Neighbors User
+  Manual}.
+\newblock UBC.
+
+\end{thebibliography}
