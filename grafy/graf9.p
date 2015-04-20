@@ -1,0 +1,21 @@
+set term postscript eps enhanced "Helvetica" 20
+set output 'graf9.eps'
+set title "Recall vs Time, 1M, onecore" font ',20'
+set key right center reverse at 75, 20
+set style data lines
+set termoption dash
+set linestyle 1 linetype 1 linewidth 1 lc 0
+set linestyle 2 linetype 14 linewidth 1 lc 0
+set linestyle 3 linetype 2 linewidth 1 lc 0
+set linestyle 4 linetype 4 linewidth 1 lc 0
+
+set yrange [ 0 : 100 ]
+set xrange [ 0 : 80 ]
+set ylabel 'k-NN recall [%]'
+set xlabel 'average search time [ms]'
+set xtics 20
+set ytics 20
+
+plot 'graf9.dat' using 3:2 title 'k=1' ls 1, 'graf9.dat' using 5:4 title 'k=10' ls 2, 'graf9.dat' using 7:6 title 'k=100' ls 3, 'graf9.dat' using 9:8 title 'k=1000' ls 4
+
+

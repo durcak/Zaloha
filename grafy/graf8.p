@@ -1,0 +1,20 @@
+set term postscript eps enhanced "Helvetica" 20 
+set output 'graf8.eps'
+set title "Zadany recall vs skutocny, 1M, onecore" font ',20'
+set key box right center reverse at 65, 80
+set style data lines
+set termoption dash
+set linestyle 1 linetype 1 linewidth 1 lc 0
+set linestyle 2 linetype 14 linewidth 1 lc 0
+set linestyle 3 linetype 2 linewidth 1 lc 0
+set linestyle 4 linetype 4 linewidth 1 lc 0
+
+set xrange [ 50 : 95 ]
+set yrange [ 0 : 100 ]
+set xlabel 'Recall zadany pri vytvarani indexu [%]'
+set ylabel 'Vysledny skutocny recall [%]'
+set xtics 10
+set ytics 10
+set grid ytics noxtics
+
+plot 'graf8.dat' using 1:2 title 'k=1' ls 1, 'graf8.dat' using 1:3 title 'k=10' ls 2, 'graf8.dat' using 1:4 title 'k=100' ls 3, 'graf8.dat' using 1:5 title 'k=1000' ls 4
