@@ -7,6 +7,12 @@ M.~Krátký, T.~Skopal, and V.~Snáše.
 \newblock In {\em Zbornik konference Kybernetika - história, perspektívy,
   teória a prax}, pages 118 -- 134. Žilinská univerzita v Žiline, 2003.
 
+\bibitem{histogram}
+MultiMedia LLC.
+\newblock Color analysis.
+\newblock
+  \url{https://www.clear.rice.edu/elec301/Projects02/artSpy/color.html}, 2015.
+
 \bibitem{vectorspace}
 G.~Salton, A.~Wong, and C.~S. Yang.
 \newblock A vector space model for automatic indexing.
@@ -32,11 +38,22 @@ Edgar Ch\'{a}vez, Gonzalo Navarro, Ricardo Baeza-Yates, and Jos{\'e}~Luis
 \newblock Searching in metric spaces.
 \newblock {\em ACM Comput. Surv.}, 33(3):273--321, September 2001.
 
+\bibitem{lp}
+Wikipedia.
+\newblock Minkowski distance.
+\newblock \url{http://en.wikipedia.org/wiki/Minkowski_distance}, 2015.
+\newblock [Online; 18-April-2015].
+
 \bibitem{nns2009}
 Alexandr Andoni.
 \newblock {\em Nearest Neighbor Search: the Old, the New, and the Impossible}.
 \newblock PhD thesis, Electrical Engineering and Computer Science,
   Massachusetts Institute of Technology, 2009.
+
+\bibitem{knnPavelJurkas}
+Pavel Jurkas.
+\newblock Fqt: indexování metrických prostoru.
+\newblock \url{https://is.muni.cz/auth/th/72641/fi_b/bc.pdf}, 2007.
 
 \bibitem{Kibriya2007}
 Ashraf~M. Kibriya and Eibe Frank.

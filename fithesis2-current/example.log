@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2015.3.23)  17 APR 2015 18:08
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2015.3.23)  22 APR 2015 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -704,6 +704,9 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count131
 \lst@gtempboxa=\box28
@@ -752,31 +755,35 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \boxbottomsep=\dimen125
 \ps@tempdima=\dimen126
 \ps@tempboxa=\box31
-) (./example.aux)
+)
+
+LaTeX Warning: Unused global option(s):
+    [a4paper].
+
+(./example.aux)
 \openout1 = `example.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 34.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 34.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -810,7 +817,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring OFF on input line 34.
+Package hyperref Info: Link coloring OFF on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -820,9 +827,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count145
 )
-LaTeX Info: Redefining \ref on input line 34.
-LaTeX Info: Redefining \pageref on input line 34.
-LaTeX Info: Redefining \nameref on input line 34.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
 
 (./example.out) (./example.out)
 \@outlinefile=\write3
@@ -872,40 +879,55 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 ]
 Kapitola 1.
+
+Overfull \hbox (1.91054pt too wide) in paragraph at lines 57--59
+\T1/ppl/m/n/12 dob-nosti sa o£a-káva, ºe vý-sledné ob-rázky vrá-tené ako vý-sle
+-dok budú
+ []
+
 [1
 
 
 ]
 Kapitola 2.
-<obr/gis_histogram_obrazu.png, id=161, 268.00125pt x 159.59625pt>
-File: obr/gis_histogram_obrazu.png Graphic file (type png)
+<obr/histogram.png, id=159, 480.79625pt x 373.395pt>
+File: obr/histogram.png Graphic file (type png)
+ <use obr/histogram.png>
+Package pdftex.def Info: obr/histogram.png used on input line 108.
+(pdftex.def)             Requested size: 142.26378pt x 110.48672pt.
 
-<use obr/gis_histogram_obrazu.png>
-Package pdftex.def Info: obr/gis_histogram_obrazu.png used on input line 89.
-(pdftex.def)             Requested size: 170.71652pt x 101.66148pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
+LaTeX Warning: `h' float specifier changed to `ht'.
 
- []
-
-[2
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 114
+.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
+File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
+) [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 116--121
-
+Overfull \hbox (7.13019pt too wide) in paragraph at lines 123--125
+\T1/ppl/m/n/12 Reálny vek-to-rový pries-tor s nor-mou teda na-zý-vame nor-mo-va
+ný pries-
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
 
- [3 <./obr/gis_histogram_obrazu.png>]
-LaTeX Font Info:    Try loading font information for TS1+ppl on input line 126.
+ []
 
+[3 <./obr/histogram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 136--141
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+ []
+
+[4]
+LaTeX Font Info:    Try loading font information for TS1+ppl on input line 155.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
-Overfull \hbox (4.94609pt too wide) in paragraph at lines 129--130
+Overfull \hbox (4.94609pt too wide) in paragraph at lines 158--159
 \T1/ppl/m/n/12 „alej si po-pí-²eme naj-£as-tej-²ie po-u-ºí-vané vzdia-le-nostné
  fun-kcie. Jednu
  []
@@ -913,64 +935,50 @@ Overfull \hbox (4.94609pt too wide) in paragraph at lines 129--130
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 130.
+(hyperref)                removing `\textasciicaron' on input line 159.
 
 
-Overfull \hbox (0.47826pt too wide) in paragraph at lines 131--132
-\T1/ppl/m/n/12 tzv. $\OML/zplm/m/it/12 L[]$ \T1/ppl/m/n/12 met-riky v zo-v²e-be
-c-ne-nej forme. Min-ko-wskí ju de-fi-no-val takto: 
+Overfull \hbox (7.0302pt too wide) in paragraph at lines 160--161
+\T1/ppl/m/n/12 tzv. $\OML/zplm/m/it/12 L[]$ \T1/ppl/m/n/12 met-riky v zo-v²e-ob
+ec-ne-nej forme. Min-ko-wskí ju de-fi-no-val takto: 
  []
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 135.
+LaTeX Warning: Command \textless invalid in math mode on input line 164.
 
-Package epstopdf Info: Source file: <obr/lp.eps>
-(epstopdf)                    date: 2015-03-29 23:31:29
-(epstopdf)                    size: 77467 bytes
-(epstopdf)             Output file: <obr/lp-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-03-29 23:32:42
-(epstopdf)                    size: 26296 bytes
-(epstopdf)             Command: <repstopdf --outfile=obr/lp-eps-converted-to.pd
-f obr/lp.eps>
-(epstopdf)             \includegraphics on input line 138.
-Package epstopdf Info: Output file is already uptodate.
-<obr/lp-eps-converted-to.pdf, id=188, 1806.75pt x 240.9pt>
-File: obr/lp-eps-converted-to.pdf Graphic file (type pdf)
+<obr/lp.jpg, id=192, 984.67876pt x 415.5525pt>
+File: obr/lp.jpg Graphic file (type jpg)
+ <use obr/lp.jpg>
+Package pdftex.def Info: obr/lp.jpg used on input line 167.
+(pdftex.def)             Requested size: 361.34999pt x 152.49654pt.
 
-<use obr/lp-eps-converted-to.pdf>
-Package pdftex.def Info: obr/lp-eps-converted-to.pdf used on input line 138.
-(pdftex.def)             Requested size: 398.33858pt x 53.1121pt.
-
-Overfull \hbox (36.98859pt too wide) in paragraph at lines 138--139
- [][] 
- []
-
-
-Overfull \hbox (23.81032pt too wide) in paragraph at lines 134--142
+Overfull \hbox (23.81032pt too wide) in paragraph at lines 163--171
 \T1/ppl/m/n/12 Rovnica udáva vzdia-le-nos´ me-dzi dvomi ob-jek-tami v $\OML/zpl
-m/m/it/12 n$\T1/ppl/m/n/12 -dimenzionalnom
+m/m/it/12 n$\T1/ppl/m/n/12 -dimenzionálnom
  []
 
 
-Overfull \hbox (1.23846pt too wide) in paragraph at lines 147--148
+Overfull \hbox (1.23846pt too wide) in paragraph at lines 176--177
 \T1/ppl/m/n/12 chov-ni-cová vzdia-le-nos´, pre-toºe na ²a-chov-nici, je to mi-n
-i-malny
+i-málny
  []
 
-[4]
 
 Package hyperref Warning: Composite letter `\textasciicaron+l'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 149.
+(hyperref)                removing `\textasciicaron' on input line 178.
 
 
-Overfull \hbox (4.0706pt too wide) in paragraph at lines 150--154
-\T1/ppl/m/n/12 ko©ko najb-liº-²ich su-se-dov bu-deme h©a-da´. Exis-tujú 3 zá-kl
+Overfull \hbox (4.0227pt too wide) in paragraph at lines 179--183
+\T1/ppl/m/n/12 ko©ko najb-liº-²ích su-se-dov bu-deme h©a-da´. Exis-tujú 3 zá-kl
 adné druhy
  []
 
-[5 <./obr/lp-eps-converted-to.pdf>]
-Overfull \hbox (33.98872pt too wide) detected at line 167
+[5]
+Underfull \vbox (badness 2970) has occurred while \output is active []
+
+ [6 <./obr/lp.jpg>]
+Overfull \hbox (33.98872pt too wide) detected at line 196
 \OML/zplm/m/it/12 kNN\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 q\OT1/zplm/m/n/12 ) = 
 \OMS/zplm/m/n/12 f\OML/zplm/m/it/12 A\OMS/zplm/m/n/12 j\OML/zplm/m/it/12 A \OMS
 /zplm/m/n/12 ^^R \OML/zplm/m/it/12 X\OT1/ppl/m/n/12 , \OMS/zplm/m/n/12 j\OML/zp
@@ -984,107 +992,59 @@ plm/m/n/12 (\OML/zplm/m/it/12 q\OT1/ppl/m/n/12 , \OML/zplm/m/it/12 y\OT1/zplm/m
 /n/12 )\OMS/zplm/m/n/12 g
  []
 
-Package epstopdf Info: Source file: <obr/Image25.eps>
-(epstopdf)                    date: 2015-03-31 00:01:37
-(epstopdf)                    size: 202121 bytes
-(epstopdf)             Output file: <obr/Image25-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-03-31 00:02:00
-(epstopdf)                    size: 17534 bytes
-(epstopdf)             Command: <repstopdf --outfile=obr/Image25-eps-converted-
-to.pdf obr/Image25.eps>
-(epstopdf)             \includegraphics on input line 178.
-Package epstopdf Info: Output file is already uptodate.
-<obr/Image25-eps-converted-to.pdf, id=204, 350.30875pt x 276.03125pt>
-File: obr/Image25-eps-converted-to.pdf Graphic file (type pdf)
+<obr/knn.png, id=208, 769.87625pt x 274.02374pt>
+File: obr/knn.png Graphic file (type png)
+ <use obr/knn.png>
+Package pdftex.def Info: obr/knn.png used on input line 207.
+(pdftex.def)             Requested size: 284.52756pt x 101.27429pt.
 
-<use obr/Image25-eps-converted-to.pdf>
-Package pdftex.def Info: obr/Image25-eps-converted-to.pdf used on input line 17
-8.
-(pdftex.def)             Requested size: 184.9429pt x 145.73146pt.
-
-Overfull \hbox (6.13382pt too wide) in paragraph at lines 185--186
-\T1/ppl/m/n/12 Pri vy-h©a-dá-vaní v met-ric-kých alebo vek-to-ro-vých prie-to-r
-och je vhodné
+Overfull \hbox (11.2218pt too wide) in paragraph at lines 214--215
+\T1/ppl/m/n/12 Pri vy-h©a-dá-vaní v met-ric-kých alebo vek-to-ro-vých pries-to-
+roch je vhodné
  []
 
-[6 <./obr/Image25-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <obr/kdtree.eps>
-(epstopdf)                    date: 2015-04-01 10:28:37
-(epstopdf)                    size: 204343 bytes
-(epstopdf)             Output file: <obr/kdtree-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-04-01 10:30:05
-(epstopdf)                    size: 4353 bytes
-(epstopdf)             Command: <repstopdf --outfile=obr/kdtree-eps-converted-t
-o.pdf obr/kdtree.eps>
-(epstopdf)             \includegraphics on input line 193.
-Package epstopdf Info: Output file is already uptodate.
+<obr/lp2.png, id=212, 801.99625pt x 350.30875pt>
+File: obr/lp2.png Graphic file (type png)
+ <use obr/lp2.png>
+Package pdftex.def Info: obr/lp2.png used on input line 222.
+(pdftex.def)             Requested size: 256.0748pt x 111.8552pt.
 
-<obr/kdtree-eps-converted-to.pdf, id=214, 488.82625pt x 201.75375pt>
-File: obr/kdtree-eps-converted-to.pdf Graphic file (type pdf)
-
-<use obr/kdtree-eps-converted-to.pdf>
-Package pdftex.def Info: obr/kdtree-eps-converted-to.pdf used on input line 193
-.
-(pdftex.def)             Requested size: 369.88582pt x 152.6664pt.
-
-Overfull \hbox (8.53583pt too wide) in paragraph at lines 193--194
- [][] 
+Overfull \hbox (3.68666pt too wide) in paragraph at lines 216--227
+\T1/ppl/m/n/12 tore. Dáta sú v strome roz-de-©o-vané pod©a viac-dimenzionálnych
+ k©ú-
  []
 
-Package epstopdf Info: Source file: <obr/Kd_tree.eps>
-(epstopdf)                    date: 2015-04-01 15:44:49
-(epstopdf)                    size: 259704 bytes
-(epstopdf)             Output file: <obr/Kd_tree-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-04-01 15:49:11
-(epstopdf)                    size: 15351 bytes
-(epstopdf)             Command: <repstopdf --outfile=obr/Kd_tree-eps-converted-
-to.pdf obr/Kd_tree.eps>
-(epstopdf)             \includegraphics on input line 209.
-Package epstopdf Info: Output file is already uptodate.
-<obr/Kd_tree-eps-converted-to.pdf, id=215, 438.63875pt x 286.06876pt>
-File: obr/Kd_tree-eps-converted-to.pdf Graphic file (type pdf)
 
-<use obr/Kd_tree-eps-converted-to.pdf>
-Package pdftex.def Info: obr/Kd_tree-eps-converted-to.pdf used on input line 20
-9.
-(pdftex.def)             Requested size: 199.16928pt x 129.89522pt.
+Underfull \hbox (badness 10000) in paragraph at lines 216--227
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--223
+ []
+
+[7 <./obr/knn.png>]
+Overfull \hbox (9.78146pt too wide) in paragraph at lines 229--230
+[]\T1/ppl/m/n/12 V ¤al-²ej pod-úrovniach stromu trie-dime ob-jekty po-stupne po
+d©a
+ []
+
+[8 <./obr/lp2.png>] <obr/kdtree01.png, id=230, 711.65875pt x 286.06876pt>
+File: obr/kdtree01.png Graphic file (type png)
+
+<use obr/kdtree01.png>
+Package pdftex.def Info: obr/kdtree01.png used on input line 241.
+(pdftex.def)             Requested size: 199.16928pt x 80.05942pt.
+ [9 <./obr/kdtree01.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 260--262
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--223
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--223
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--223
-
- []
-
-[7 <./obr/kdtree-eps-converted-to.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8 <./obr/Kd_tree-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 226--228
-
- []
-
-
-Overfull \hbox (6.8563pt too wide) in paragraph at lines 229--230
+Overfull \hbox (6.8563pt too wide) in paragraph at lines 263--264
 \T1/ppl/m/n/12 ú£ely M-stromu alebo \T1/ppl/m/it/12 sku-to£ný \T1/ppl/m/n/12 --
- ulo-ºeny v nie-kto-rom liste $\OML/zplm/m/it/12 T\OT1/zplm/m/n/12 (\OML/zplm/m
+ ulo-ºený v nie-kto-rom liste $\OML/zplm/m/it/12 T\OT1/zplm/m/n/12 (\OML/zplm/m
 /it/12 O[]\OT1/zplm/m/n/12 )$ 
  []
 
 
-Overfull \hbox (5.91928pt too wide) in paragraph at lines 232--233
+Overfull \hbox (5.91928pt too wide) in paragraph at lines 266--267
 []\T1/ppl/m/n/12 Vzdialenos´ $\OML/zplm/m/it/12 d\OT1/zplm/m/n/12 (\OML/zplm/m/
 it/12 O[]\OT1/ppl/m/n/12 , \OML/zplm/m/it/12 P\OT1/zplm/m/n/12 (\OML/zplm/m/it/
 12 O[]\OT1/zplm/m/n/12 ))$ \T1/ppl/m/n/12 od svojho ro-di-£ov-ského sme-ro-va-c
@@ -1092,235 +1052,219 @@ ieho
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Overfull \hbox (1.92256pt too wide) in paragraph at lines 268--269
+\T1/ppl/m/n/12 Listové uzly vy-pa-dajú po-dobne, ale miesto od-kazu na svoj pod
+-strom
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
-[9] <obr/m-tree.png, id=239, 1184.425pt x 351.3125pt>
+<obr/m-tree.png, id=241, 1184.425pt x 351.3125pt>
 File: obr/m-tree.png Graphic file (type png)
  <use obr/m-tree.png>
-Package pdftex.def Info: obr/m-tree.png used on input line 242.
+Package pdftex.def Info: obr/m-tree.png used on input line 276.
 (pdftex.def)             Requested size: 369.88582pt x 109.70982pt.
 
-Overfull \hbox (8.53583pt too wide) in paragraph at lines 242--243
+Overfull \hbox (8.53583pt too wide) in paragraph at lines 276--277
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--254
+Underfull \hbox (badness 10000) in paragraph at lines 273--288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--254
+Underfull \hbox (badness 10000) in paragraph at lines 273--288
 
  []
 
-
-Overfull \hbox (2.58434pt too wide) in paragraph at lines 255--259
+[10]
+Overfull \hbox (2.58434pt too wide) in paragraph at lines 289--293
 \T1/ppl/m/n/12 z kto-rej po-stupne vy-be-ráme ob-jekty na vy-h©a-dá-va-nie v st
 rome $\OML/zplm/m/it/12 T\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 O[]\OT1/zplm/m/n/1
 2 )$\T1/ppl/m/n/12 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--259
+Underfull \hbox (badness 10000) in paragraph at lines 289--293
 
  []
 
 
-Overfull \hbox (0.57785pt too wide) in paragraph at lines 255--259
+Overfull \hbox (0.57785pt too wide) in paragraph at lines 289--293
 \T1/ppl/m/n/12 Met-rický pries-tor umoº-¬uje de-fi-no-va´ ²pe-ciálne met-riky a
  tým rôzne
  []
 
-[10 <./obr/m-tree.png>] [11]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./obr/m-tree.png>] [12]
 Kapitola 3.
 
-Overfull \hbox (8.34956pt too wide) in paragraph at lines 261--262
+Overfull \hbox (8.34956pt too wide) in paragraph at lines 295--296
 \T1/ppl/m/n/12 FLANN[][][] je kniº-nica po-sky-tu-júca rýchly prog-ra-má-tor-sk
 y ná-stroj, ktorý
  []
 
 
-Overfull \hbox (10.61333pt too wide) in paragraph at lines 263--265
-\T1/ppl/m/it/12 means tree[][][] \T1/ppl/m/n/12 a \T1/ppl/m/it/12 mul-tiple ran
--do-mi-zed k-d trees[][][]\T1/ppl/m/n/12 , ktoré sú ob-sia-hnuté v kniºnci
- []
-
-
-Overfull \hbox (3.67435pt too wide) in paragraph at lines 268--269
+Overfull \hbox (3.67435pt too wide) in paragraph at lines 304--305
 \T1/ppl/m/n/12 KD-stromov, ktoré sú pre-h©a-dá-vané pa-ra-lelne. Ori-gi-nálne K
 D-stromy
  []
 
 
-Overfull \vbox (3.58624pt too high) has occurred while \output is active []
+Overfull \vbox (1.08627pt too high) has occurred while \output is active []
 
 
-[12
+[13
 
 ]
-Overfull \hbox (3.19458pt too wide) in paragraph at lines 271--272
-\T1/ppl/m/n/12 dzenú ²truk-túru vstup-ných dát. Na roz-diel od ran-do-mi-zo-va-
-ných KD-
+Overfull \hbox (0.18195pt too wide) in paragraph at lines 307--308
+\T1/ppl/m/n/12 Pri nie-kto-rých ty-poch dát, môºe by´ efek-tív-nej²í al-go-rit-
+mus K-means
  []
 
-
-Overfull \hbox (0.12245pt too wide) in paragraph at lines 271--272
-\T1/ppl/m/n/12 skrz v²etky di-men-zie, pri-£om KD-stromy vy-uºí-vajú na de-le-n
-ie v kaº-
+[14]
+Overfull \hbox (0.81833pt too wide) in paragraph at lines 317--318
+\T1/ppl/m/n/12 va-nie najb-liº-²ích su-se-dov vo vek-to-ro-vých dá-tach. Niesu 
+v²ak vhodné
  []
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+l'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 274.
+(hyperref)                removing `\textasciicaron' on input line 325.
 
 
-Overfull \hbox (1.40596pt too wide) in paragraph at lines 277--278
-\T1/ppl/m/n/12 sa vy-ko-najú pri de-lení stromu na re-gi-óny. Men²í po-£et ite-
-rá-cié urýchli
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[13]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 279.
-
-
-Overfull \hbox (0.81833pt too wide) in paragraph at lines 280--281
-\T1/ppl/m/n/12 va-nie najb-liº-²ích su-se-dov vo vek-to-ro-vých dá-tach. Niesu 
-v²ak vhodné
- []
-
-[14]
-Overfull \hbox (1.5499pt too wide) in paragraph at lines 291--292
-\T1/ppl/m/n/12 nájs´ naj-lep-²ie rie-²e-nie. Cenú vý-po£tu po-£í-tame ako kom-b
+ [15]
+Overfull \hbox (1.5499pt too wide) in paragraph at lines 328--329
+\T1/ppl/m/n/12 nájs´ naj-lep-²ie rie-²e-nie. Cenu vý-po£tu po-£í-tame ako kom-b
 i-ná-ciu £asu
  []
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 296.
+LaTeX Warning: Command \textless invalid in math mode on input line 333.
 
 
-LaTeX Warning: Command \textgreater invalid in math mode on input line 296.
+LaTeX Warning: Command \textgreater invalid in math mode on input line 333.
 
-[15]
-Overfull \hbox (1.16628pt too wide) in paragraph at lines 301--302
+[16]
+Overfull \hbox (1.16628pt too wide) in paragraph at lines 338--339
 \T1/ppl/m/n/12 Jadro kniº-nice FLANN je na-prog-ra-mo-vané v prog-ra-mo-va-com 
 ja-zyku
  []
 
-
-Overfull \vbox (5.51337pt too high) has occurred while \output is active []
-
-
-[16]
-LaTeX Font Info:    Try loading font information for T1+fi4 on input line 321.
- (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1fi4.fd
+LaTeX Font Info:    Try loading font information for T1+fi4 on input line 340.
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1fi4.fd
 File: t1fi4.fd 2009/05/28 T1/Inconsolata
 )
 LaTeX Font Info:    Font shape `T1/fi4/m/n' will be
-(Font)              scaled to size 12.35999pt on input line 321.
+(Font)              scaled to size 12.35999pt on input line 340.
 
-Overfull \hbox (6.47083pt too wide) in paragraph at lines 329--331
+Overfull \hbox (2.1022pt too wide) in paragraph at lines 340--341
+\T1/ppl/m/n/12 do nej vstupné ob-jekty, do-tazy a vý-sledky vy-h©a-dá-va-nia(vz
+dialenosti
+ []
+
+
+Overfull \hbox (0.64688pt too wide) in paragraph at lines 340--341
+\T1/ppl/m/n/12 mäti. Na na-£í-ta-nie dát, môºe by´ po-u-ºitá kniº-nica HDF5[][]
+[], ktorá musí
+ []
+
+
+Overfull \vbox (3.4903pt too high) has occurred while \output is active []
+
+
+[17]
+Overfull \hbox (6.47083pt too wide) in paragraph at lines 348--349
 []\T1/ppl/b/n/12 KMeansIndexParams \T1/ppl/m/n/12 In-dex s týmto ty-pom vy-tvor
 í hie-rar-chický
  []
 
 
-Overfull \hbox (19.05357pt too wide) in paragraph at lines 336--337
-[][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (15.6509pt too wide) in paragraph at lines 342--344
+Overfull \hbox (15.6509pt too wide) in paragraph at lines 350--351
 \T1/ppl/m/n/12 ran-do-mi-zo-va-ných KD-stromov a hie-rar-chic-kého K-means stro
-mu.
+mu. 
  []
 
 
-Overfull \hbox (19.05357pt too wide) in paragraph at lines 349--350
-[][][][][][][][][][][][] 
- []
-
-[17]
-Overfull \hbox (2.7388pt too wide) in paragraph at lines 362--363
-[]\T1/fi4/m/n/12 leaf_max_size \T1/ppl/m/n/12 na-sta-vuje ma-xi-málny po-£et ob
--jek-tov v lis-to-vých
- []
-
-
-Overfull \hbox (0.60156pt too wide) in paragraph at lines 364--365
+Overfull \hbox (0.60156pt too wide) in paragraph at lines 354--355
 \T1/ppl/m/n/12 na CUDA kom-pa-ti-bil-ných gra-fic-kých kar-tách. Tento typ in-d
 exu
  []
 
 
-Overfull \hbox (19.05357pt too wide) in paragraph at lines 372--373
-[][][][][][][][][][][][] 
- []
-
-[18]
-Overfull \hbox (8.16304pt too wide) in paragraph at lines 390--392
-[]\T1/ppl/b/n/12 SavedIndexParams \T1/ppl/m/n/12 Umoº-¬uje na-£í-ta´ pred-tým v
-y-tvo-rený a ulo-
+Overfull \hbox (16.03497pt too wide) in paragraph at lines 362--364
+[]\T1/ppl/m/n/12 Po vý-bere pa-ra-met-rov sa in-dex vy-tvorí vo-la-ním me-tódy 
+\T1/fi4/m/n/12 buildIndex\T1/ppl/m/n/12 .
  []
 
 
-Overfull \hbox (11.57147pt too wide) in paragraph at lines 408--410
-\T1/ppl/m/n/12 in-dexu, po-tom ako uº bol vy-tvo-rený. Ho-dota \T1/fi4/m/n/12 r
-ebuild_threshold
+Overfull \hbox (0.66187pt too wide) in paragraph at lines 362--364
+\T1/ppl/m/n/12 opä-tovné po-u-ºi-tie vy-tvo-rený in-dex ulo-ºi´ do sú-boru. Ob-
+jekty sa dajú
  []
 
-
-Overfull \hbox (35.64343pt too wide) in paragraph at lines 427--429
-[]\T1/ppl/b/n/12 flann::Index::save \T1/ppl/m/n/12 Me-tóda uloºí vy-tvo-rený in
--dex do sú-boru \T1/fi4/m/n/12 filename\T1/ppl/m/n/12 .
- []
-
-
-Overfull \hbox (4.99568pt too wide) in paragraph at lines 433--435
-[]\T1/ppl/b/n/12 flann::Index::knnSearch \T1/ppl/m/n/12 Me-tóda na vy-h©a-dá-va
--nie K-najbliº²ích
- []
-
-[19]
-Overfull \hbox (13.85129pt too wide) in paragraph at lines 459--460
-\T1/ppl/m/n/12 by´ vý-sledky zo-ra-dené pod©a vzdia-le-ností (\T1/fi4/m/n/12 so
-rted = true\T1/ppl/m/n/12 ) alebo
- []
-
-[20] [21]
+[18] [19]
 Kapitola 4.
-[22
+
+Overfull \hbox (5.11406pt too wide) in paragraph at lines 385--386
+[]\T1/ppl/m/n/12 Porovnáva´ vý-kon in-de-xov po-dob-nej ve©-kosti, napr. 4GB a 
+5GB.
+ []
+
+
+Overfull \hbox (2.34221pt too wide) in paragraph at lines 387--388
+[]\T1/ppl/m/n/12 Ak po-£í-tame zrých-le-nie oproti li-ne-ár-nemu vy-h©a-dá-va-n
+iu, ktorá
+ []
+
+
+Overfull \hbox (12.9263pt too wide) in paragraph at lines 395--396
+[]\T1/ppl/b/n/12 Testovacie dáta: \T1/ppl/m/n/12 sú-bory 100K, 300K, 500K a 1M 
+4096-dimenzionálnych
+ []
+
+[20
 
 ]
-Kapitola 5.
-(./example.bbl [23
+Underfull \hbox (badness 10000) in paragraph at lines 401--404
 
-] [24
+ []
+
+[21]
+Kapitola 5.
+(./example.bbl [22
+
+] [23
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 486.
- [25]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 486.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 424.
+ [24]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 424.
  (./example.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 486.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 486.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 424.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 424.
 Package rerunfilecheck Info: File `example.out' has not changed.
-(rerunfilecheck)             Checksum: 533477FEFB6DA1BAB772E6C08622CC60;1629.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 486.
+(rerunfilecheck)             Checksum: 6ED624F04D47E5E2D91A277A76DE03E7;1533.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 424.
  ) 
 Here is how much of TeX's memory you used:
- 9834 strings out of 493485
- 137917 string characters out of 3143526
- 266790 words of memory out of 3000000
- 12673 multiletter control sequences out of 15000+200000
- 56213 words of font info for 110 fonts, out of 3000000 for 9000
+ 9262 strings out of 493485
+ 131380 string characters out of 3143526
+ 245917 words of memory out of 3000000
+ 12199 multiletter control sequences out of 15000+200000
+ 46127 words of font info for 89 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 44i,10n,58p,1080b,1201s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,10n,58p,1084b,446s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/fi4-ec.enc}{/usr/s
 hare/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} <./fi-logo600.514pk></usr/
 share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata.pfb></usr/s
@@ -1328,15 +1272,16 @@ hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pala
-tino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on example.pdf (31 pages, 315971 bytes).
+onts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/m
+athpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on example.pdf (30 pages, 1002758 bytes).
 PDF statistics:
- 593 PDF objects out of 1000 (max. 8388607)
- 478 compressed objects within 5 object streams
- 178 named destinations out of 1000 (max. 500000)
- 227 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 475 PDF objects out of 1000 (max. 8388607)
+ 362 compressed objects within 4 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 219 words of extra memory for PDF output out of 10000 (max. 10000000)
 
