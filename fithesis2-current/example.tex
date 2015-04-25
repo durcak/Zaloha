@@ -36,11 +36,11 @@
   \FrontMatter                    % The front matter
     \ThesisTitlePage                % The title page
     \begin{ThesisDeclaration}       % The declaration
-      \DeclarationText
+     \DeclarationText
       \AdvisorName
     \end{ThesisDeclaration}
     \begin{ThesisThanks}            % The acknowledgements (optional)
-      I would like to thank my supervisor\,\dots
+      Rád by som sa poďakoval\,\dots
     \end{ThesisThanks}
     \begin{ThesisAbstract}          % The abstract
       The aim of the bachelor work is to provide\,\dots
@@ -59,14 +59,18 @@ v takejto databáze obrázky, ktoré sú podobné dotazu, teda obrázku, ktorý 
 
 Problém nájdenia najbližšieho suseda (nearest neighbor search) má veľký význam pre rôzne aplikácie ako napríklad: rozpoznávanie obrazu, kompresiu dát, rozpoznávanie vzorov a ich klasifikáciu, strojové učenie, štatistiku a analýzu dát. Avšak, riešenie tohto problému vo vysoko dimenzionálnych priestoroch sa zdá byť zložitý problém. Toto viedlo k zvýšeniu záujmu o triedy vyhľadávacích algoritmov, ktoré dokážu riešiť tento problém rýchlejšie ako bežné algoritmy.
 
-Pre túto úlohu existujú rôzne vyhľadávacie indexy a za jedno z najlepších riešení je považovaná knižnica FLANN\footnote{Fast Library for Approximate Nearest Neighbors}. Cieľom bakalárskej práce bolo túto knižnicu otestovať na rôznych dátach dodaných vedúcim a vyhodnotiť efektivitu vyhľadávania. Výsledky boli porovnané s výkonom indexovaných štruktúr vyvinutých v laboratóriu DISA\footnote{Laboratory of Data Intensive Systems and Applications, MU Fakulta informatiky, Brno}.
+Pre túto úlohu existujú rôzne vyhľadávacie indexy a za jedno z najlepších riešení je považovaná knižnica FLANN\footnote{Fast Library for Approximate Nearest Neighbors}. Cieľom bakalárskej práce bolo túto knižnicu otestovať na rôznych dátach dodaných vedúcim a vyhodnotiť efektivitu vyhľadávania. Výsledky boli porovnané s výkonom indexovej štruktúry M-index vyvinutej v laboratóriu DISA\footnote{Laboratory of Data Intensive Systems and Applications, MU Fakulta informatiky, Brno}.
 
-Plus tu dopíšem stručný popis jednotlivých kapitol..
+Svoju bakalársku prácu som rozdelil na dve hlavné časti: teoretickú a praktickú. V druhej kapitole som uviedol základné definície vektorového a metrického priestoru a stručne ich porovnal. Definoval som metriku a základné vzdialenostné funkcie. V tretej kapitole som sa zaoberal oblasťou indexácie a vyhľadávania najbližších objektov. Uviedol som základné typy dotazov v podobnostnom vyhľadávaní. Tiež som podrobne opísal vyhľadávacie štruktúry KD-strom a M-strom. Vo štvrtej kapitole som sa venoval opisu štruktúry M-indexu. Piata kapitola je venovaná knižnici FLANN, opisu jej funkcionality a algoritmov, ktoré sú v nej implementované. 
 
-    \chapter{Základné pojmy}
+V druhej, praktickej časti som sa zaoberal testovaním. Robil som experimenty na rôznych dátových kolekciách dodaných vedúcim práce a porovnával rýchlosť vyhľadávania pri rôznych parametroch implementovanej štruktúry...
+
+Úvod dokončím, keď budem písať záver.
+
+\chapter{Základné pojmy}
     
-    	\section{Vektorový priestor}
-    Vektorový priestor $ \Omega = D_1D_2. . .D_n $ má dimenziu $n$. Objekt (resp. vektor alebo bod)  $\mathcal{O} = [a_1, a_2, . . . , a_n] $ patriaci do vektorového priestoru je jednoznačne určený svojimi súradnicami $ a_i \in D_i, 1 \le i \le n, $ ktorých je práve $n$. $D_i$ je doménou dimenzie a určuje množinu hodnôt(resp. vlastností), ktoré môže príslušná vektorová súradnica nadobúdať \cite{stromy}.
+\section{Vektorový priestor}
+    Vektorový priestor $ \Omega = D_1D_2. . .D_n $ má dimenziu $n$. Objekt (resp. vektor alebo bod)  $\mathcal{O} = [a_1, a_2, . . . , a_n] $ patriaci do vektorového priestoru je jednoznačne určený svojimi súradnicami $ a_i \in D_i, 1 \le i \le n, $ ktorých je práve $n$. $D_i$ je doménou dimenzie a určuje množinu hodnôt (resp. vlastností), ktoré môže príslušná vektorová súradnica nadobúdať \cite{stromy}.
     	
     Vektorový priestor $\Omega$, definujeme nad určitým poľom $\mathbf{P} $, s význačným prvkom $\mathbf{0}$ a dvomi binárnymi operáciami, sčítaním $+ : \Omega \times \Omega \rightarrow \Omega $  a násobením $\cdot : \mathbf{P}  \times \Omega \rightarrow \Omega$, takými že platí: 
      
@@ -122,7 +126,8 @@ Normovaný vektorový priestor je vektorový priestor nad $\mathbb{R}^n$, v ktor
 \|x\| = 0  \Rightarrow x = 0
 \end{equation*}
 Reálny vektorový priestor s normou teda nazývame normovaný priestor. Intuitívne je to vektorový priestor, v ktorom možno merať dĺžky vektorov. \textit{Vzdialenosť bodov} $a, b$ vo vektorovom priestore $V$ s normou $\| \cdot \|$ nazývame dĺžku vektora $a - b$, teda číslo $\|a-b\|$.
-    \section{Metrický priestor}
+
+\section{Metrický priestor}
     
     Metrický priestor je množina, na ktorej je definovaná vzdialenosť pre všetky prvky z množiny. Táto vzdialenosť sa nazýva metrika. Metriku môžme definovať ako funkciu, ktorá určuje vzdialenosť medzi dvomi objektami. \\ \\
     \textbf{Definícia:} Nech $X\neq 0$ je množina. Definujme zobrazenie \\ $d: X \times X \rightarrow R $, ktoré spĺňa nasledujúce vlastnosti:
@@ -161,8 +166,9 @@ Minkowského vzdialenosť je generalizovaná metrika, ktorá zahŕňa tzv. $L_p$
 \begin{equation*}
 L_p((x_1,...,x_n),(y_1,...,y_n))=\sqrt[p]{\left(\sum\limits_{i=1}^n \mid x_i-y_i \mid^p \right)}
 \end{equation*}
-Rovnica udáva vzdialenosť medzi dvomi objektami v $n$-dimenzionálnom priestore pre $p\geq 1$ (ak by bolo $p \textless 1$ nešlo by o metriku) \cite{Zezula2}.  \\
-	\begin{figure}
+Rovnica udáva vzdialenosť medzi dvomi objektami v $n$-dimenzionálnom priestore pre $p\geq 1$ (ak by bolo $p \textless 1$ nešlo by o metriku) \cite{Zezula2}.
+
+	\begin{figure}[h!]
   		\centering
   		\includegraphics[width=\textwidth]{obr/lp.jpg}
   		\caption{Znázornenie $L_p$- metrík v $R^2$ podľa parametra p. Zdroj:\cite{lp}}
@@ -175,32 +181,33 @@ Medzi najznámejšie a najpoužívanejšie metriky patria:
 \item $L_2$ -- Euklidovská metrika vyjadruje najkratšiu vzdušnú vzdialenosť medzi dvomi objektmi. $L_2$ je použitá aj pri testoch.
 \item $L_\infty $ -- Čebyševova metrika, nazýva sa tiež maximálna alebo šachovnicová vzdialenosť, pretože na šachovnici, je to minimálny počet ťahov potrebných na prejdenie kráľom z jedného štvorca na iný.
 \end{itemize}
-   \section{Vyhľadávanie v metrických a vektorových priestoroch}
+   \chapter{Vyhľadávanie v metrických a vektorových priestoroch}
    Základnou charakteristikou vyhľadávania vo vektorových a metrických priestoroch je neurčitosť. Týka sa to hlavne problému \textbf{Nájdenia najbližšieho suseda} (ang. Nearest neighbor search) \cite{nns2009}. Tento problém obecne definujeme takto: \\
    Je daná množina bodov $P=\{p_1,...,p_n\}$ v priestore $X$ a dotazované body $q \in M$, nájdite najbližšie body z $P$ ku $q$.\\
    Pod pojmom \textbf{najbližší sused} rozumieme objekt alebo bod podobný dotazovanému bodu. Nepožadujeme aby boli výsledky vyhľadávania vždy na 100\% presné, ale aby výpočet skončil v čo najkratšom čase.
    Pred vyhľadávaním sa musíme rozhodnúť, ako chceme určovať blízkosť objektov, akú metriku použijeme. V našich testoch bola použitá $L_2$ metrika, čiže klasická Euklidovská metrika, ktorá je vhodná pre husto vzorkované dáta. Ďalej sa musíme rozhodnúť, koľko najbližších susedov budeme hľadať. Existujú 3 základné druhy dotazov:
-   \begin{itemize}
-   \item \textbf{Dotaz na najbližšieho suseda}- hľadáme najbližší najpodobnejší objekt k dotazu, výsledkom je 1 objekt ku každému dotazu.
+
+   \begin{description}
+   \item \textbf{Dotaz na najbližšieho suseda:} hľadáme najbližší najpodobnejší objekt k dotazu, výsledkom je 1 objekt ku každému dotazu.
    
    \textbf{Definícia:}
    \begin{equation*}
    NN(q)=\{x \in X, \forall y \in X| d(q,x)\leq d(q,y) \}
    \end{equation*}
 Výsledkom je bod $x$, ktorého vzdialenosť od dotazu $q$ je najmenšia spomedzi všetkých bodov z množiny $X$.
-   \item \textbf{Dotaz na k-najbližších susedov}- niekedy nám nemusí stačiť len 1 najbližší objekt, preto hľadáme $k$ susedov, ktorý sú mu podobný.
+   \item \textbf{Dotaz na k-najbližších susedov:} niekedy nám nemusí stačiť len 1 najbližší objekt, preto hľadáme $k$ susedov, ktorý sú mu podobný.
    
    \textbf{Definícia:}
    \begin{equation*}
    kNN(q)=\{A|A \subseteq X,|A|=k,\forall x \in A,\forall y \in X - A,d(q,x)\leq d(q,y)\}
    \end{equation*}    
-   \item \textbf{Rozsahový dotaz}- použijeme, keď chceme nájsť všetkých najbližších susedov, ktorý su od dotazovaného bodu $q$ vzdialený maximálne zvolenú hodnotu $r$ (polomer vyhľadávania).
+   \item \textbf{Rozsahový dotaz:} použijeme, keď chceme nájsť všetkých najbližších susedov, ktorý su od dotazovaného bodu $q$ vzdialený maximálne zvolenú hodnotu $r$ (polomer vyhľadávania).
    
    \textbf{Definícia:} %R(q,r)=\{ x \in X|d(q,x)\leq r \}
    \begin{equation*} 
   rNN(q,X,r)=\{ x \in X|d(q,x)\leq r \}
    \end{equation*}  
-   \end{itemize}
+   \end{description}
    
 	\begin{figure}[h]
   		\centering
@@ -209,12 +216,11 @@ Výsledkom je bod $x$, ktorého vzdialenosť od dotazu $q$ je najmenšia spomedz
   		\label{fig:rozdelenie priestoru}
 	\end{figure}  
 
-\section{Indexové štruktúry}
-
+\chapter{Indexové štruktúry}
 Pri vyhľadávaní v metrických alebo vektorových priestoroch je vhodné dáta rozdeliť do menších podmnožín a niektoré dáta pri prezeraní vynechať, čím sa môže odpoveď na dotaz značne urýchliť. Na roztriedenie dát používame špeciálne indexové štruktúry. Dve z nich si v podkapitolách popíšeme.
-\subsection{KD-stromy}
-KD = k-dimenzionálny strom \cite{Kibriya2007} je binárny strom slúžiaci na reprezentáciu priestorových dát vyšších dimenzií vo vektorovom priestore. Dáta sú v strome rozdeľované podľa viac-dimenzionálnych kľúčov, ktorými sú zvyčajne súradnice bodov alebo vektorov. \\ \\
-\textbf{Vytvorenie KD-stromu}\\
+\section{KD-stromy}
+KD = k-dimenzionálny strom \cite{Kibriya2007} je binárny strom slúžiaci na reprezentáciu priestorových dát vyšších dimenzií vo vektorovom priestore. Dáta sú v strome rozdeľované podľa viac-dimenzionálnych kľúčov, ktorými sú zvyčajne súradnice bodov alebo vektorov. 
+\subsection{Vytvorenie KD-stromu}
 \textbf{Vstup:} Množina objektov v k-dimenzionálnom priestore. \\
 \textbf{Problém:} Vytvoriť strom, ktorý rozdeľuje priestor polrovinami, tzn. každý objekt je vo svojom vlastnom kvádri. Viď \ref{fig:polroviny}\\
 \begin{figure}[h]
@@ -230,11 +236,12 @@ KD = k-dimenzionálny strom \cite{Kibriya2007} je binárny strom slúžiaci na r
 \item Ak by sme vkladali objekty do stromu v náhodnom poradí, strom by bol nevyvážený, preto sa vkladané objekty vyberajú podľa priemernej hodnoty všetkých hodnôt na danom koordináte alebo podľa mediánu
 \item Po log(n) krokoch sa rozklad zastaví, každý objekt má svoje miesto
 \end{enumerate} 
-\textbf{Vkladanie objektu do stromu:} \\
-\textbf{Príklad:} Do stromu na Obr. \ref{fig:kdtree} vložíme objekt s kľúčom (11,8)
+
+\textbf{Vkladanie objektu do stromu} \\
+\textbf{Príklad:} Do stromu na Obr. \ref{fig:kdtree} vložíme objekt s kľúčom (11, 8)
 \begin{itemize}
-\item V koreni sa podľa koordinátu $x$ porovná s uzlom (7,2), kedže 11>7 ide doprava
-\item V ďalšej úrovní sa porovná podľa $y$ s uzlom (9,6), kedže 8>6 ide doprava, tento uzol je prázdny, preto sa na toto miesto uloží objekt (11,8)
+\item V koreni sa podľa koordinátu $x$ porovná s uzlom (7, 2), kedže $11>7$ ide doprava
+\item V ďalšej úrovní sa porovná podľa $y$ s uzlom (9, 6), kedže 8>6 ide doprava, tento uzol je prázdny, preto sa na toto miesto uloží objekt (11, 8)
 \end{itemize}
 \begin{figure}[h]
   		\centering
@@ -242,9 +249,10 @@ KD = k-dimenzionálny strom \cite{Kibriya2007} je binárny strom slúžiaci na r
   		\caption{Vkladanie objektu do KD-stromu}
   		\label{fig:kdtree}
 \end{figure}
-\textbf{Vyhľadávanie v KD-strome} \\
+
+\subsection{Vyhľadávanie v KD-strome}
 KD-strom umožňuje vyhľadávať najbližšie body. Na Obr. \ref{fig:polroviny} je znázornené ako strom rozdelí vektorový priestor na menšie obdĺžniky (polroviny). Nájdenie najbližšieho objektu teda znamená nájdenie oblasti, v ktorej je dotaz $q$ a prehľadanie okolitých oblastí, kde by sa ešte mohol nachádzať ešte bližší bod.
-\\
+
 \textbf{Algoritmus:} 
 \begin{itemize}
 \item Nájde sa bunka $c$ obsahujúca objekt $q$
@@ -252,11 +260,12 @@ KD-strom umožňuje vyhľadávať najbližšie body. Na Obr. \ref{fig:polroviny}
 \item Nájdeme všetky najbližšie bunky $c'$ vo vzdialenosti $d(p,q)$
 \item Otestujeme či $c'$ neobsahuje bližší objekt
 \end{itemize}
-\textbf{Použitie:}\\
+
+\subsection{Použitie:}
 KD-stromy sa používajú hlavne na indexovanie objektov s nižšou dimenziou. Pri vyšších dimenziách sa začne prejavovať tzv. \textit{prekliatie dimenzionality}, ktoré spôsobuje neefektívnosť pri vyhľadávaní.
 
   
-\subsection{M-stromy}
+\section{M-stromy}
    Pre indexovanie objektov v metrických priestoroch sa často využíva dátová štruktúra M-strom \cite{stromy}. Štruktúru stromu tvorí opäť n-arny strom ako u KD-stromu. Rozdiel spočíva v obsahu uzlov a listov stromu. Samotné objekty sú uložené len v listových uzloch stromu. Nelistové uzly obsahujú tzv. \textbf{smerovacie objekty}. \\\\
 Každý smerovací objekt v uzle obsahuje:
 \begin{itemize}
@@ -273,33 +282,65 @@ Princíp hierarchie M-stromu spočíva rovnako ako u KD-stromu v rozdelení prie
 \end{equation*}
 \begin{figure}
   		\centering
-  		\includegraphics[width=13cm]{obr/m-tree.png}
+  		\includegraphics[width=\textwidth]{obr/m-tree.png}
   		\caption{Uzly M-stromu obsahujúce objekty (vľavo) a regióny smerovacích objektov znázornené v metrickom priestore (vpravo)} Zdroj: \cite{stromy} 
   		%\label{fig:triangle}
   		\label{m-strom}
 \end{figure}
 Na obrázku \ref{m-strom} je znázornená štruktúra stromu a vzťahy medzi smerovacími objektami.\\
-\\
-\textbf{Vytvorenie M-stromu:}\\
+
+\subsection{Vytvorenie M-stromu:}
 Rovnaká množina objektov môže byť v M-strome indexovaná mnohými rôznymi spôsobmi, pričom neporušíme ani jeden z axiomov metriky alebo vlastnosti M-stromov. Avšak každý z týchto spôsobov nemusí byť práve ideálny z hľadiska efektivity operácií vykonávaných nad M-stromom. Obecne hľadáme také spôsoby konštrukcie stromov, aby zložitosť dotazovanie bola minimálna. Efektívnosť vyhľadávania v značnej miere ovplyvňuje výber smerovacích objektov tzv. \textit{pivotov}, ktoré potrebujeme na rozdelenie metrického priestoru pri vytváraní stromu. Dôležitý je vyber pivotov, ktorí sú vo vhodnej vzdialenosti od ostatných objektov. Dobrí pivoti by mali byť navzájom ďaleko od seba a taktiež by sa mali nachádzať ďaleko od ostatných objektov v metrickom priestore. \\
-\\
-\textbf{Vyhľadávanie v M-strome:}\\
+
+\subsection{Vyhľadávanie v M-strome:}
 V M-stromoch môžme vyhľadávať \textit{k-najbližších susedov} ako aj pomocou \textit{rozsahového dotazu}. 
 
 Pri vyhľadávaní k-najbližších susedov je dôležitá prioritná rada, z ktorej postupne vyberáme objekty na vyhľadávanie v strome $T(O_r)$. Každý objekt v rade má tvar:\\ $(prt(T(O_r)), d_{min}(T(O_r)))$. Prvý člen je už známy ukazateľ na pod-strom, druhý člen je spodná hranica medzi dotazovaným objektom $Q$ a každým objektom $O_j$ z $T(O_r)$.
-\\ \\
-\textbf{Použitie:} \\
+
+\subsection{Použitie:}
 M-stromy požívame, keď dáta nie je možné indexovať vo vektorovom priestore, alebo keď sú vektory dát príliš dlhé (dimenzia \textgreater \,20). Metrický priestor umožňuje definovať špeciálne metriky a tým rôzne interpretovať vzdialenosť (resp. podobnosť) objektov na základe ich vlastností.
 
-	\chapter{Knižnica FLANN}
-	FLANN\footnote{Z anglického: Fast Library for Approximate Nearest Neighbors} je knižnica poskytujúca rýchly programátorsky nástroj, ktorý slúži na \textit{vyhľadávanie najbližších susedov}. Pre tento účel obsahuje kolekciu nástrojov (algoritmov) a tiež systém automatického výberu najlepšieho algoritmu a optimálnych parametrov použitých pri vyhľadávaní najbližších susedov. Aby bolo vyhľadávanie čo najrýchlejšie, je knižnica FLANN napísaná v programovacom jazyku C++ a je možné ju použiť aj pri programovaní v jazykoch C, Matlab, Python a Ruby. Knižnica je voľne šíriteľná pod licenciou BSD\footnote{BSD licencia sa používa pre voľne šíriteľný softvér, je pomenovaná podľa Berkeley Software Distribution, Unixový operačný systém} \cite{flann_pami_2014}.
+\chapter{M-index}
+M-index (Metrický index) \cite{m-index}, ktorý slúži na vyhľadávanie najbližších susedov, bol vyvinutý na základe dlhodobého výskumu v oblasti indexácie dát v metrických priestoroch. M-index využíva na indexáciu a vyhľadávanie sadu referenčných objektov a prakticky zohľadňuje všetky známe princípy rozdeľovania, filtrovania a zoskupovania metrických priestorov. Na ukladanie a vyhľadávanie dát sa používa známa štruktúra $B^+$\textit{-strom}. M-index poskytuje možnosti pre rýchle vyhľadávanie so zaručenou 100\% presnosťou. Okrem toho poskytuje aj vyhľadávanie s nižšou presnosťou a skrátením času vyhľadávania.
+
+Princíp M-indexu bol inšpirovaný metódou \textit{iDistance} \cite{iDistance}, ktorá slúži na indexáciu a vyhľadávanie dát vo vektorovom priestore. Základom je výber \textit{n} referenčných objektov (pivotov) $ p_1,...,p_n \in X $ a následné rozdelenie vstupných dát $ D \subseteq X $ na menšie oblasti (clusters). Rozdelenie dát prebieha rekurzívne podľa algoritmu \textit{Voronoi partitioning} \cite{voronoi, m-index}.
+
+\begin{figure}[h!]
+  		\centering
+  		\includegraphics[width=\textwidth]{obr/m-index.png}
+  		\caption{Princíp rekurzívneho delenia priestoru: prvý level (vľavo), druhý level (vpravo) } Zdroj: \cite{m-index} 
+  		%\label{fig:triangle}
+  		\label{m-index}
+\end{figure}
+
+V prvom kroku sa každý objekt $ o \in D $ priradí svojmu najbližšiemu pivotu $ p_i $ a tak sa vytvoria menšie oblasti $ C_i $. Na ďalšej úrovni je každá oblasť $ C_i $ rozdelená rovnakým algoritmom na $ n-1 $ oblasti pomocou množiny pivotov $ p_1,...,p_{i-1},p_{i+1},...,p_{n} $. Takto vzniknú oblasti $ C_{i,j} $, kde $ j $ je index druhého najbližšieho pivota. Delenie sa opakuje $ l$-krát, pre M-index s $ l $ úrovňami, kde $ l $ je prirodzené číslo, $ 1 \leq l \leq n $ \cite{m-index}. Príklad rozdelenia po dvoch úrovniach je na Obr. \ref{m-index}.  
+
+M-index ďalej definuje zobrazenie dátového priestoru do číselnej domény $ key_l : X \rightarrow \mathbb{R} $. Celá časť kľúča $ key_l(o), o \in X $ vyplýva z očíslovania oblastí. %Oblasti $C_{i_0,...,i_{l-1}}$%
+Desatinná časť je vzdialenosť medzi objektom $o$ a jeho najbližším pivotom. Dohromady celý kľúč je:
+\begin{align*}
+key_l(o) = d(p_{(0)_o} , o) + \sum_{i=0}^{l-1}{(i)_o \cdot n^{l-1-i}} 
+\end{align*}
+Takto definovaný M-index ma statický level rozdeľovania. Môže však nastať situácia, keď sa niektorá z oblasti už nemusí deliť na menšie časti, z dôvodu nerovnomerného rozloženia dát. Preto existuje aj dynamická varianta M-indexu, ktorá delí iba oblasti, ktoré obsahujú predom určený maximálny počet dát \cite{m-index}. Príklad je na Obr. \ref{dinamic-index}.
+
+\begin{figure}[h!]
+  		\centering
+  		\includegraphics[width=10cm]{obr/m-index_tree.png}
+  		\caption{M-index dynamický strom s $l_{max}=3$} Zdroj: \cite{m-index} 
+  		%\label{fig:triangle}
+  		\label{dinamic-index}
+\end{figure}
+
+M-index obsahuje algoritmy na rozsahové vyhľadávanie ($rNN$) aj vyhľadávanie k-najbližších susedov ($kNN$). Pri $kNN$ sa využíva algoritmus na $rNN$ s postupným zvyšovaním polomeru vyhľadávania kým sa nedosiahne požadovaného počtu k-najbližších objektov. Presnosť a rýchlosť vyhľadávania sa reguluje nastavením maximálneho počtu objektov, ktoré sa pri vyhľadávaní skontrolujú \cite{m-index}. 
+
+\chapter{Knižnica FLANN}
+	FLANN je knižnica poskytujúca rýchly programátorsky nástroj, ktorý slúži na \textit{vyhľadávanie najbližších susedov}. Pre tento účel obsahuje kolekciu nástrojov (algoritmov) a tiež systém automatického výberu najlepšieho algoritmu a optimálnych parametrov použitých pri vyhľadávaní najbližších susedov. Aby bolo vyhľadávanie čo najrýchlejšie, je knižnica FLANN napísaná v programovacom jazyku C++ a je možné ju použiť aj pri programovaní v jazykoch C, Matlab, Python a Ruby. Knižnica je voľne šíriteľná pod licenciou BSD\footnote{BSD licencia sa používa pre voľne šíriteľný softvér, je pomenovaná podľa Berkeley Software Distribution, Unixový operačný systém} \cite{flann_pami_2014}.
 	
 V ďalších podkapitolách si popíšeme algoritmy 
 \textit{The Multiple Randomized kd-trees}\footnote{Algoritmus náhodných KD-stromov},
 \textit{The Priority Search K-Means Tree}\footnote{Algoritmus pre prioritné K-means stromy} a 
 \textit{The Hierarchical Clustering Tree\protect\footnote{Algoritmus pre Hierarchické zhlukovacie stromy}}, ktoré sú obsiahnuté v knižnici FLANN a javia sa najrýchlejšie z pomedzi existujúcich algoritmov na vyhľadávanie najbližších susedov.
 	\section{Algoritmus Náhodných KD-stromov}
-Klasické algoritmy využívajúce KD-stromy sú vhodné na vyhľadávanie najbližších susedov v nízko-dimenzionálnych dátach, avšak pre vyššie dimenzie vykazujú značný pokles výkonu. Tento problém viedol k vývoju nového a vylepšeného algoritmu využívajúceho KD-stromy. \cite{flann_pami_2014}	
+Klasické algoritmy využívajúce KD-stromy sú vhodné na vyhľadávanie najbližších susedov v nízko-dimenzionálnych dátach, avšak pre vyššie dimenzie vykazujú značný pokles výkonu. Tento problém viedol k vývoju nového a vylepšeného algoritmu využívajúceho KD-stromy \cite{flann_pami_2014}. 
 	
 	Algoritmus je založený na stavaní mnohopočetných náhodných KD-stromov, ktoré sú prehľadávané paralelne. Originálne KD-stromy pri vytváraní delia dáta na polovicu v každej úrovni stromu vždy postupne podľa dimenzií zaradom. Na porovnanie náhodne KD-stromy vyberajú deliacu dimenziu náhodne z prvých $D$ dimenzií, kde majú dáta najväčší rozptyl. Knižnica FLANN používa v implementácií algoritmu hodnotu $D$ = 5, ktorá sa pri testoch ukázala ako optimálna. Pri vyhľadávaní sa používa prioritná rada skrz všetky randomizované KD-stromy. Objekty v tejto rade sú zoradené podľa zvyšujúcej sa vzdialenosti od deliacej hranice v každej úrovni, čo zvyšuje rýchlosť vyhľadávania. Každý objekt, ktorý už bol porovnaný s dotazom v niektorom strome, je označený a v ďalších  stromoch sa už neporovnáva. Presnosť aproximácie vyhľadávania sa reguluje nastavením maximálneho počtu listových uzlov (skrz všetky stromy), ktoré sa pri vyhľadávaní skontrolujú \cite{flann_pami_2014}.	
 	
@@ -332,7 +373,7 @@ Klasické algoritmy využívajúce KD-stromy sú vhodné na vyhľadávanie najbl
 	\end{equation}
 kde $s$ je čas vyhľadávania a $b$ je čas potrebný na vytvorenie vyhľadávacieho indexu. Parameter $m = m_t/m_d$ reprezentuje pomer pamäte použitej na uloženie indexu ($m_t$) a uloženia dát ($m_d$). Parameter $w_b$ reguluje čas potrebný na vytvorenie indexu vzhľadom ku času vyhľadávania. Ak nastavíme $w_b = 0$, znamená to, že chceme čo najrýchlejšie vyhľadávať a nezaujíma nás rýchlosť vytvorenia indexu. Nastavením $w_b = 1$, priradíme času vyhľadávania a vytvorenia indexu rovnakú dôležitosť. Podobne $w_m$ nastavuje prioritu medzi časom (čas vyhľadávania vytvorenia indexu) a pamäťou, ktorú využíva vyhľadávací index. Hodnota $w_m \textless 1$ kladie väčšiu váhu na čas nehľadiac na pamäť a hodnota $w_m \textgreater 1$  kladie prioritu na množstvo využitej pamäte. Nastavením $w_m = 1$ priradíme rovnakú prioritu času aj využitiu pamäte \cite{muja_flann_2009}. 
 
-Výber najlepšieho algoritmu a optimálnych parametrov sa vykonáva v dvoch krokoch: V prvom kroku vyberáme algoritmus s najlepšími výsledkami podľa rovnice \ref{cena}. Pri testovaní sa využívajú hodnoty z množiny \{1,4,8,16,32\} ako počet náhodných KD-stromov, \{1,5,10,15\} ako počet iterácií a \{16,32,64,128,256\} ako počet vetiev v K-means strome. V druhom kroku sa využíva Nelder-Mead downhill simplex metóda \cite{NelderMead65}, pomocou ktorej sa určia optimálne parametre pre algoritmus vybraný v prvom kroku. Optimalizácia môže byť počítaná na celých vstupných dátach, alebo len na časti. Typicky stačí $5-10\,\%$ a výsledky sa stále veľmi blížia optimálnym hodnotám (ak sú dáta podobnej štruktúry) \cite{muja_flann_2009}.
+Výber najlepšieho algoritmu a optimálnych parametrov sa vykonáva v dvoch krokoch: V prvom kroku vyberáme algoritmus s najlepšími výsledkami podľa rovnice \ref{cena}. Pri testovaní sa využívajú hodnoty z množiny \{1,4,8,16,32\} ako počet náhodných KD-stromov, \{1,5,10,15\} ako počet iterácií a \{16,32,64,128,256\} ako počet vetiev v K-means strome. V druhom kroku sa využíva Nelder-Mead downhill simplex metóda \cite{NelderMead65}, pomocou ktorej sa určia optimálne parametre pre algoritmus vybraný v prvom kroku. Optimalizácia môže byť počítaná na celých vstupných dátach alebo len na časti. Typicky stačí $5-10\,\%$ a výsledky sa stále veľmi blížia optimálnym hodnotám (ak sú dáta podobnej štruktúry) \cite{muja_flann_2009}.
 
 	\section{Použitie knižnice FLANN v C++}
 	Jadro knižnice FLANN je naprogramované v programovacom jazyku C++, preto je na jej samotnú kompiláciu potrebný C++ prekladač. Knižnicu je možne použiť s Linuxovými distribúciami, ale aj Windowsom a OS X. Pre viac-jadrovú podporu je nutné mať nainštalovanú knižnicu OpenMP. Predkompilovanú knižnicu FLANN je  možné použiť aj pomocou knižnice PCL (Point Cloud Library)\footnote{http://www.pointclouds.org}, do ktorej je implementovaná jedna zo starších verzií. V ďalších častiach si popíšeme niektoré základné triedy a funkcie knižnice \cite{manual}.
@@ -340,24 +381,24 @@ Výber najlepšieho algoritmu a optimálnych parametrov sa vykonáva v dvoch kro
 	Na ukladanie dát slúži trieda \texttt{Matrix<ElementType>}. Ukladáme do nej vstupné objekty, dotazy a výsledky vyhľadávania(vzdialenosti a ID objektov). FLANN potrebuje mať všetky dáta v operačnej pamäti. Na načítanie dát, môže byť použitá knižnica HDF5\footnote{https://hdfgroup.org/HDF5/}, ktorá musí byť nainštalovaná pred kompiláciou knižnice FLANN. 
 	
 	Po načítaní dát, je potrebné vytvoriť vyhľadávací index a nastaviť parametre. Na tento účel slúži trieda \texttt{flann::Index<T>}. V konštruktore triedy sa nastavuje typ vzdialenostnej funkcie a typ vyhľadávacieho algoritmu. Medzi zakladné typy patrí:
-	\begin{itemize}
-	\item \textbf{LinearIndexParams} Určený pre lineárne vyhľadávanie.
+	\begin{description}
+	\item \textbf{LinearIndexParams --} Určený pre lineárne vyhľadávanie.
 	
-	\item \textbf{KDTreeIndexParams} Index s týmto typom vytvorí randomizované KD-stromy, ktoré sa prehľadávajú paralelne. V štruktúre je možné nastaviť počet stromov (\texttt{trees}), ktoré sa majú vytvoriť. 
+	\item \textbf{KDTreeIndexParams --} Index s týmto typom vytvorí randomizované KD-stromy, ktoré sa prehľadávajú paralelne. V štruktúre je možné nastaviť počet stromov (\texttt{trees}), ktoré sa majú vytvoriť. 
 
-	\item \textbf{KMeansIndexParams} Index s týmto typom vytvorí hierarchický k-means strom.
+	\item \textbf{KMeansIndexParams --} Index s týmto typom vytvorí hierarchický k-means strom.
 
-	\item \textbf{CompositeIndexParams} Index s týmto typom je kombináciou randomizovaných KD-stromov a hierarchického K-means stromu. 
+	\item \textbf{CompositeIndexParams --} Index s týmto typom je kombináciou randomizovaných KD-stromov a hierarchického K-means stromu. 
 
-	\item \textbf{KDTreeSingleIndexParams} Index s týmto typom vytvorí jeden KD-strom, ktorý je optimalizovaný na vyhľadávanie v nízkodimenzionálnych dátach (napríklad 2D a 3D priestor).
+	\item \textbf{KDTreeSingleIndexParams --} Index s týmto typom vytvorí jeden KD-strom, ktorý je optimalizovaný na vyhľadávanie v nízkodimenzionálnych dátach (napríklad 2D a 3D priestor).
 
-	\item \textbf{KDTreeCuda3dIndexParams} Index s týmto typom vytvorí jeden KD-strom. Vytvorenie a vyhľadávanie v strome prebieha na CUDA kompatibilných grafických kartách. Tento typ indexu sa hodí na vyľadávanie veľkého počtu dotazov.
+	\item \textbf{KDTreeCuda3dIndexParams --} Index s týmto typom vytvorí jeden KD-strom. Vytvorenie a vyhľadávanie v strome prebieha na CUDA kompatibilných grafických kartách. Tento typ indexu sa hodí na vyľadávanie veľkého počtu dotazov.
 	
-	\item \textbf{HierarchicalClusteringIndexParams} Index s týmto typom použíje na vyhľadávanie hierarchické zhlukovacie stromy.
+	\item \textbf{HierarchicalClusteringIndexParams --} Index s týmto typom použíje na vyhľadávanie hierarchické zhlukovacie stromy.
 
-	\item \textbf{AutotunedIndexParams} Tento typ indexu je určený pre automatický výber najlepšej vyhľadávacej štruktúry a jej optimálnych parametrov.
+	\item \textbf{AutotunedIndexParams --} Tento typ indexu je určený pre automatický výber najlepšej vyhľadávacej štruktúry a jej optimálnych parametrov.
 	
-	\end{itemize}
+	\end{description}
 
 Po výbere parametrov sa index vytvorí volaním metódy \texttt{buildIndex}. Vytvorenie indexu zvyčajne trvá dlhšiu dobu, preto je možné pre opätovné použitie vytvorený index uložiť do súboru.
 Objekty sa dajú do indexu pridávať a odoberať aj po jeho vytvorení pomocou metód: \texttt{addPoints} a \texttt{removePoint}. 
@@ -365,9 +406,9 @@ Objekty sa dajú do indexu pridávať a odoberať aj po jeho vytvorení pomocou 
 Na samotné vyhľadávanie najbližších objektov k dotazom slúžia dve základné metódy:
 
 \begin{itemize}
-	\item \textbf{flann::Index::knnSearch} Slúži na vyhľadávanie K-najbližších susedov pre množinu dotazovaných objektov. Metóda má parameter \texttt{checks}, ktorý určuje počet listových uzlov, ktoré sa majú skontrolovať a môže byť nastavená na špeciálne hodnoty:\\ \texttt{FLANN\_CHECKS\_UNLIMITED} (skontroluje všetky listové uzly),\\ \texttt{FLANN\_CHECKS\_AUTOTUNED} (použije vypočítanú hodnotu, ak bol index vytvorený automaticky).
+	\item \textbf{flann::Index::knnSearch --} Slúži na vyhľadávanie K-najbližších susedov pre množinu dotazovaných objektov. Metóda má parameter \texttt{checks}, ktorý určuje počet listových uzlov, ktoré sa majú skontrolovať a môže byť nastavená na špeciálne hodnoty:\\ \texttt{FLANN\_CHECKS\_UNLIMITED} (skontroluje všetky listové uzly),\\ \texttt{FLANN\_CHECKS\_AUTOTUNED} (použije vypočítanú hodnotu, ak bol index vytvorený automaticky).
 
-	\item \textbf{flann::Index::radiusSearch} Metóda na rozsahové vyhľadávanie najbližších objektov do vzdialenosti polomeru \texttt{radius} \cite{manual}. 
+	\item \textbf{flann::Index::radiusSearch --} Metóda na rozsahové vyhľadávanie najbližších objektov do vzdialenosti polomeru \texttt{radius} \cite{manual}. 
 
 \end{itemize}
 
@@ -392,11 +433,11 @@ Pre správnosť a férovosť porovnania je taktiež dôležite dodržať niekoľ
 \section{Nastavenie parametrov}
 \begin{description}
 
-\item \textbf{Testovacie dáta:} súbory 100K, 300K, 500K a 1M 4096-dimenzionálnych vektorov, textový formát v zip archíve, každý objekt je uložený na dvoch riadkoch, prvý riadok obsahuje ID objektu(10 miestne číslo) samotný vektor je na ďalšom riadku atď.
+\item \textbf{Testovacie dáta:} súbory 100K, 300K, 500K, 1M, 3M 4096-dimenzionálnych vektorov, textový formát v zip archíve, každý objekt je uložený na dvoch riadkoch, prvý riadok obsahuje ID objektu(10 miestne číslo) samotný vektor je na ďalšom riadku
 
-\item \textbf{Dotazované objekty:} 1000 náhodne vybraných objektov z testovaných dát. 
+\item \textbf{Dotazované objekty:} 1000 náhodne vybraných objektov z testovaných dát s dimenziou 4096
 
-\item \textbf{Groundtruth(správne výsledky):} 1000 najbližších susedov spočítaných pre každý dotaz, osobitne pre všetky testovacie dáta. Formát: 2 riadky pre každý dotaz, prvý riadok ID dotazu, druhý riadok 1000 párov(L2 vzdialenosť od dotazu, ID objektu), výsledky pre každý dotaz sú usporiadané podľa vzdialenosti.
+\item \textbf{Groundtruth (správne výsledky):} 1000 najbližších susedov spočítaných pre každý dotaz, osobitne pre všetky testovacie dáta. Formát: 2 riadky pre každý dotaz, prvý riadok ID dotazu, druhý riadok 1000 párov(L2 vzdialenosť od dotazu, ID objektu), výsledky pre každý dotaz sú usporiadané podľa vzdialenosti.
 
 \item \textbf{Parametre vyhľadávania:} \\
 k=1, 10, 100 ,1000 \\

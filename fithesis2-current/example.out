@@ -5,17 +5,24 @@
 \BOOKMARK [1][-]{section.2.3}{ Metrick\351 vs. vektorov\351 priestory}{chapter.2}% 5
 \BOOKMARK [1][-]{section.2.4}{ Vzdialenostn\351 funkcie}{chapter.2}% 6
 \BOOKMARK [2][-]{subsection.2.4.1}{ Minkowsk\351ho vzdialenost}{section.2.4}% 7
-\BOOKMARK [1][-]{section.2.5}{ Vyhlad\341vanie v metrick\375ch a vektorov\375ch priestoroch}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.6}{ Indexov\351 \235trukt\372ry}{chapter.2}% 9
-\BOOKMARK [2][-]{subsection.2.6.1}{ KD-stromy}{section.2.6}% 10
-\BOOKMARK [2][-]{subsection.2.6.2}{ M-stromy}{section.2.6}% 11
-\BOOKMARK [0][-]{chapter.3}{Kni\236nica FLANN}{}% 12
-\BOOKMARK [1][-]{section.3.1}{ Algoritmus N\341hodn\375ch KD-stromov}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.2}{ Algoritmus pre Prioritn\351 K-means stromy}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.3}{ Algoritmus pre Hierarchick\351 zhlukovacie stromy}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.4}{ Automatick\375 v\375ber vyhlad\341vac\355ch parametrov}{chapter.3}% 16
-\BOOKMARK [1][-]{section.3.5}{ Pou\236itie kni\236nice FLANN v C++}{chapter.3}% 17
-\BOOKMARK [0][-]{chapter.4}{Porovnanie kni\236nice FLANN a M-indexu}{}% 18
-\BOOKMARK [1][-]{section.4.1}{ Nastavenie parametrov}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.2}{ V\375sledky}{chapter.4}% 20
-\BOOKMARK [0][-]{chapter.5}{Z\341ver}{}% 21
+\BOOKMARK [0][-]{chapter.3}{Vyhlad\341vanie v metrick\375ch a vektorov\375ch priestoroch}{}% 8
+\BOOKMARK [0][-]{chapter.4}{Indexov\351 \235trukt\372ry}{}% 9
+\BOOKMARK [1][-]{section.4.1}{ KD-stromy}{chapter.4}% 10
+\BOOKMARK [2][-]{subsection.4.1.1}{ Vytvorenie KD-stromu}{section.4.1}% 11
+\BOOKMARK [2][-]{subsection.4.1.2}{ Vyhlad\341vanie v KD-strome}{section.4.1}% 12
+\BOOKMARK [2][-]{subsection.4.1.3}{ Pou\236itie:}{section.4.1}% 13
+\BOOKMARK [1][-]{section.4.2}{ M-stromy}{chapter.4}% 14
+\BOOKMARK [2][-]{subsection.4.2.1}{ Vytvorenie M-stromu:}{section.4.2}% 15
+\BOOKMARK [2][-]{subsection.4.2.2}{ Vyhlad\341vanie v M-strome:}{section.4.2}% 16
+\BOOKMARK [2][-]{subsection.4.2.3}{ Pou\236itie:}{section.4.2}% 17
+\BOOKMARK [0][-]{chapter.5}{M-index}{}% 18
+\BOOKMARK [0][-]{chapter.6}{Kni\236nica FLANN}{}% 19
+\BOOKMARK [1][-]{section.6.1}{ Algoritmus N\341hodn\375ch KD-stromov}{chapter.6}% 20
+\BOOKMARK [1][-]{section.6.2}{ Algoritmus pre Prioritn\351 K-means stromy}{chapter.6}% 21
+\BOOKMARK [1][-]{section.6.3}{ Algoritmus pre Hierarchick\351 zhlukovacie stromy}{chapter.6}% 22
+\BOOKMARK [1][-]{section.6.4}{ Automatick\375 v\375ber vyhlad\341vac\355ch parametrov}{chapter.6}% 23
+\BOOKMARK [1][-]{section.6.5}{ Pou\236itie kni\236nice FLANN v C++}{chapter.6}% 24
+\BOOKMARK [0][-]{chapter.7}{Porovnanie kni\236nice FLANN a M-indexu}{}% 25
+\BOOKMARK [1][-]{section.7.1}{ Nastavenie parametrov}{chapter.7}% 26
+\BOOKMARK [1][-]{section.7.2}{ V\375sledky}{chapter.7}% 27
+\BOOKMARK [0][-]{chapter.8}{Z\341ver}{}% 28

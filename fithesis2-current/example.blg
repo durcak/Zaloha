@@ -4,48 +4,52 @@ The top-level auxiliary file: example.aux
 The style file: unsrt.bst
 Database file #1: citacie.bib
 Warning--entry type for "Histogram" isn't style-file defined
---line 198 of file citacie.bib
+--line 208 of file citacie.bib
+I was expecting a `,' or a `}'---line 211 of file citacie.bib
+ :   year = 2015 
+ :               [cit. 2015-04-18],
+I'm skipping whatever remains of this entry
 Warning--entry type for "knnPavelJurkas" isn't style-file defined
---line 215 of file citacie.bib
-You've used 16 entries,
+--line 225 of file citacie.bib
+You've used 19 entries,
             1791 wiz_defined-function locations,
-            554 strings with 6274 characters,
-and the built_in function-call counts, 4044 in all, are:
-= -- 397
-> -- 126
+            574 strings with 6776 characters,
+and the built_in function-call counts, 4743 in all, are:
+= -- 454
+> -- 168
 < -- 7
-+ -- 49
-- -- 33
-* -- 214
-:= -- 581
-add.period$ -- 54
-call.type$ -- 16
-change.case$ -- 13
++ -- 64
+- -- 45
+* -- 274
+:= -- 699
+add.period$ -- 63
+call.type$ -- 19
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 205
-empty$ -- 416
-format.name$ -- 33
-if$ -- 976
+cite$ -- 19
+duplicate$ -- 231
+empty$ -- 478
+format.name$ -- 45
+if$ -- 1124
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 12
-newline$ -- 84
-num.names$ -- 16
-pop$ -- 60
+int.to.str$ -- 19
+missing$ -- 15
+newline$ -- 99
+num.names$ -- 19
+pop$ -- 63
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 130
+skip$ -- 141
 stack$ -- 0
-substring$ -- 263
-swap$ -- 81
+substring$ -- 309
+swap$ -- 84
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 35
-width$ -- 18
-write$ -- 185
-(There were 2 warnings)
+while$ -- 41
+width$ -- 21
+write$ -- 218
+(There was 1 error message)
