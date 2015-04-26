@@ -384,13 +384,11 @@ Výber najlepšieho algoritmu a optimálnych parametrov sa vykonáva v dvoch kro
 	\begin{description}
 	\item \textbf{LinearIndexParams --} Určený pre lineárne vyhľadávanie.
 	
-	\item \textbf{KDTreeIndexParams --} Index s týmto typom vytvorí randomizované KD-stromy, ktoré sa prehľadávajú paralelne. V štruktúre je možné nastaviť počet stromov (\texttt{trees}), ktoré sa majú vytvoriť. 
+	\item \textbf{KDTreeIndexParams --} Index s týmto typom vytvorí randomizované KD-stromy, ktoré sa prehľadávajú paralelne. 
 
 	\item \textbf{KMeansIndexParams --} Index s týmto typom vytvorí hierarchický k-means strom.
 
 	\item \textbf{CompositeIndexParams --} Index s týmto typom je kombináciou randomizovaných KD-stromov a hierarchického K-means stromu. 
-
-	\item \textbf{KDTreeSingleIndexParams --} Index s týmto typom vytvorí jeden KD-strom, ktorý je optimalizovaný na vyhľadávanie v nízkodimenzionálnych dátach (napríklad 2D a 3D priestor).
 
 	\item \textbf{KDTreeCuda3dIndexParams --} Index s týmto typom vytvorí jeden KD-strom. Vytvorenie a vyhľadávanie v strome prebieha na CUDA kompatibilných grafických kartách. Tento typ indexu sa hodí na vyľadávanie veľkého počtu dotazov.
 	
@@ -406,7 +404,7 @@ Objekty sa dajú do indexu pridávať a odoberať aj po jeho vytvorení pomocou 
 Na samotné vyhľadávanie najbližších objektov k dotazom slúžia dve základné metódy:
 
 \begin{itemize}
-	\item \textbf{flann::Index::knnSearch --} Slúži na vyhľadávanie K-najbližších susedov pre množinu dotazovaných objektov. Metóda má parameter \texttt{checks}, ktorý určuje počet listových uzlov, ktoré sa majú skontrolovať a môže byť nastavená na špeciálne hodnoty:\\ \texttt{FLANN\_CHECKS\_UNLIMITED} (skontroluje všetky listové uzly),\\ \texttt{FLANN\_CHECKS\_AUTOTUNED} (použije vypočítanú hodnotu, ak bol index vytvorený automaticky).
+	\item \textbf{flann::Index::knnSearch --} Slúži na vyhľadávanie k-najbližších susedov pre množinu dotazovaných objektov. Metóda má parameter \texttt{checks}, ktorý určuje počet listových uzlov, ktoré sa majú skontrolovať a môže byť nastavená na špeciálne hodnoty:\\ \texttt{FLANN\_CHECKS\_UNLIMITED} (skontroluje všetky listové uzly),\\ \texttt{FLANN\_CHECKS\_AUTOTUNED} (použije vypočítanú hodnotu, ak bol index vytvorený automaticky).
 
 	\item \textbf{flann::Index::radiusSearch --} Metóda na rozsahové vyhľadávanie najbližších objektov do vzdialenosti polomeru \texttt{radius} \cite{manual}. 
 
@@ -433,28 +431,38 @@ Pre správnosť a férovosť porovnania je taktiež dôležite dodržať niekoľ
 \section{Nastavenie parametrov}
 \begin{description}
 
-\item \textbf{Testovacie dáta:} súbory 100K, 300K, 500K, 1M, 3M 4096-dimenzionálnych vektorov, textový formát v zip archíve, každý objekt je uložený na dvoch riadkoch, prvý riadok obsahuje ID objektu(10 miestne číslo) samotný vektor je na ďalšom riadku
+\item \textbf{Testovacie dáta:} súbory 100K, 300K, 500K, 1M, 3M 4096-dimenzionálnych vektorov, textový formát v zip archíve, každý objekt je uložený na dvoch riadkoch, prvý riadok obsahuje ID objektu (10 miestne číslo) samotný vektor je na ďalšom riadku
 
 \item \textbf{Dotazované objekty:} 1000 náhodne vybraných objektov z testovaných dát s dimenziou 4096
 
-\item \textbf{Groundtruth (správne výsledky):} 1000 najbližších susedov spočítaných pre každý dotaz, osobitne pre všetky testovacie dáta. Formát: 2 riadky pre každý dotaz, prvý riadok ID dotazu, druhý riadok 1000 párov(L2 vzdialenosť od dotazu, ID objektu), výsledky pre každý dotaz sú usporiadané podľa vzdialenosti.
+\item \textbf{Groundtruth (správne výsledky):} 1000 najbližších susedov spočítaných pre každý dotaz, osobitne pre všetky testovacie dáta. Formát: 2 riadky pre každý dotaz, prvý riadok ID dotazu, druhý riadok 1000 párov (L2 vzdialenosť od dotazu, ID objektu), výsledky pre každý dotaz sú usporiadané podľa vzdialenosti.
 
-\item \textbf{Parametre vyhľadávania:} \\
-k=1, 10, 100 ,1000 \\
-rôzne nastavenia presnosti vyhľadávania \\
-
-\item \textbf{Merania:}
-Presnosť vyhľadávania určuje: 
+\item \textbf{Presnosť vyhľadávania určuje:} 
 \begin{equation*}
-\textrm{recall} =  \frac{ \textrm{odpoveď} \cap \textrm{groundtruth}}{k}
+\textbf{recall} =  \frac{ \textrm{odpoveď} \cap \textrm{groundtruth}}{k}
 \end{equation*}
-Meriame čas pre jeden dotaz, ako priemer z 1000 dotazov v [ms].
 
-\item 
+\item \textbf{Parametre vyhľadávania:}
+\begin{itemize}
+\item k = 1, 10, 100, 1000
+\item autotuning nastavený na 99\%, 95\%, 90\%, 80\%, 70\%, 60\%, 50\% presnosť (FLANN)
+\item meníme počet skontrolovaných listových uzlov (FLANN)
+\item meníme počet skontrolovaných objektov (M-index)
+\end{itemize}
+
+\item \textbf{Porovnávame:}
+\begin{itemize}
+\item presnosť vyhľadávanie (recall v $[\%]$)
+\item rýchlosť vyhľadávania (čas pre 1 dotazu v $[ms]$)
+\item čas vytvorenia indexu v $[s]$
+\item využitie zdrojov
+\end{itemize}
+
+
 \end{description}
 
 
-\section{Výsledky}
+\section{Výsledky a porovnanie}
     \chapter{Záver}
     
 \bibliographystyle{unsrt}

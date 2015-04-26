@@ -4,24 +4,20 @@ The top-level auxiliary file: example.aux
 The style file: unsrt.bst
 Database file #1: citacie.bib
 Warning--entry type for "Histogram" isn't style-file defined
---line 208 of file citacie.bib
-I was expecting a `,' or a `}'---line 211 of file citacie.bib
- :   year = 2015 
- :               [cit. 2015-04-18],
-I'm skipping whatever remains of this entry
+--line 211 of file citacie.bib
 Warning--entry type for "knnPavelJurkas" isn't style-file defined
 --line 225 of file citacie.bib
 You've used 19 entries,
             1791 wiz_defined-function locations,
-            574 strings with 6776 characters,
-and the built_in function-call counts, 4743 in all, are:
-= -- 454
-> -- 168
+            575 strings with 6954 characters,
+and the built_in function-call counts, 4718 in all, are:
+= -- 455
+> -- 161
 < -- 7
-+ -- 64
-- -- 45
-* -- 274
-:= -- 699
++ -- 62
+- -- 43
+* -- 270
+:= -- 695
 add.period$ -- 63
 call.type$ -- 19
 change.case$ -- 16
@@ -29,14 +25,14 @@ chr.to.int$ -- 0
 cite$ -- 19
 duplicate$ -- 231
 empty$ -- 478
-format.name$ -- 45
-if$ -- 1124
+format.name$ -- 43
+if$ -- 1120
 int.to.chr$ -- 0
 int.to.str$ -- 19
 missing$ -- 15
 newline$ -- 99
 num.names$ -- 19
-pop$ -- 63
+pop$ -- 61
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
@@ -51,5 +47,5 @@ type$ -- 0
 warning$ -- 0
 while$ -- 41
 width$ -- 21
-write$ -- 218
-(There was 1 error message)
+write$ -- 219
+(There were 2 warnings)

@@ -1,7 +1,7 @@
 \begin{thebibliography}{10}
 
 \bibitem{stromy}
-M.~Krátký, T.~Skopal, and V.~Snáše.
+Václav~Snášel Michal~Krátký, Tomáš~Skopal.
 \newblock Porovnání některých metod pro vyhledávání a indexování
   multimediálních dat.
 \newblock In {\em Zbornik konference Kybernetika - história, perspektívy,
@@ -14,7 +14,10 @@ G.~Salton, A.~Wong, and C.~S. Yang.
 
 \bibitem{histogram}
 MultiMedia LLC.
-\newblock Color analysis, 2015.
+\newblock Color analysis [online].
+\newblock
+  \url{https://www.clear.rice.edu/elec301/Projects02/artSpy/color.html}, 2015
+  [cit. 2015-04-18].
 
 \bibitem{Yianilos:1993:DSA:313559.313789}
 Peter~N. Yianilos.
@@ -38,10 +41,9 @@ Edgar Ch\'{a}vez, Gonzalo Navarro, Ricardo Baeza-Yates, and Jos{\'e}~Luis
 
 \bibitem{lp}
 Wikipedia.
-\newblock Minkowski distance.
+\newblock Minkowski distance [online].
 \newblock \url{http://en.wikipedia.org/wiki/Minkowski_distance}, 2015 [cit.
   2015-04-18].
-\newblock [Online; 18-April-2015].
 
 \bibitem{nns2009}
 Alexandr Andoni.
@@ -113,7 +115,7 @@ J.~A. Nelder and R.~Mead.
 \bibitem{manual}
 Marius Muja and David~G. Lowe.
 \newblock {\em FLANN - Fast Library for Approximate Nearest Neighbors User
-  Manual}.
-\newblock UBC.
+  Manual [online]}.
+\newblock UBC, 2013 [cit. 2015-04-18].
 
 \end{thebibliography}

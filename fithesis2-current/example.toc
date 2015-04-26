@@ -23,7 +23,7 @@
 \contentsline {section}{\numberline {6.3}\slshape Algoritmus pre Hierarchick\IeC {\'e} zhlukovacie stromy}{19}{section.6.3}
 \contentsline {section}{\numberline {6.4}\slshape Automatick\IeC {\'y} v\IeC {\'y}ber vyh\IeC {\v l}ad\IeC {\'a}vac\IeC {\'\i }ch parametrov}{19}{section.6.4}
 \contentsline {section}{\numberline {6.5}\slshape Pou\IeC {\v z}itie kni\IeC {\v z}nice FLANN v C++}{21}{section.6.5}
-\contentsline {chapter}{\numberline {7}\bfseries Porovnanie kni\IeC {\v z}nice FLANN a M-indexu}{24}{chapter.7}
-\contentsline {section}{\numberline {7.1}\slshape Nastavenie parametrov}{24}{section.7.1}
-\contentsline {section}{\numberline {7.2}\slshape V\IeC {\'y}sledky}{25}{section.7.2}
-\contentsline {chapter}{\numberline {8}\bfseries Z\IeC {\'a}ver}{26}{chapter.8}
+\contentsline {chapter}{\numberline {7}\bfseries Porovnanie kni\IeC {\v z}nice FLANN a M-indexu}{23}{chapter.7}
+\contentsline {section}{\numberline {7.1}\slshape Nastavenie parametrov}{23}{section.7.1}
+\contentsline {section}{\numberline {7.2}\slshape V\IeC {\'y}sledky a porovnanie}{24}{section.7.2}
+\contentsline {chapter}{\numberline {8}\bfseries Z\IeC {\'a}ver}{25}{chapter.8}
